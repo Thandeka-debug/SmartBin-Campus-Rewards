@@ -94,6 +94,4 @@ C4Component
   Rel(reward_comp, auth_middleware, "Protected by")
 ```
 
-## Level 4: Code Diagram (Optional - For future use)
 
-A Level 4 diagram would zoom into a specific component, like the Points Controller, and show a UML class diagram for its internal structure. This will be detailed during the implementation phase.
