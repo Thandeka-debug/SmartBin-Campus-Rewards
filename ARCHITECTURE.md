@@ -21,7 +21,7 @@ C4Context
   Rel(admin, smartbin, "Monitors bins, manages reward catalog")
   Rel(smartbin, id_auth, "Verifies student identity")
   Rel(smartbin, push_notif, "Sends notifications")
-
+```
 C4Container
   title Container diagram for the SmartBin System
 
@@ -47,7 +47,6 @@ C4Container
   Rel(api, id_auth, "Verifies identity (simulated)")
 
   UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")
-
 C4Component
   title Component diagram for the Backend API Container
 
