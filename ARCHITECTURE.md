@@ -22,6 +22,11 @@ C4Context
   Rel(smartbin, id_auth, "Verifies student identity")
   Rel(smartbin, push_notif, "Sends notifications")
 ```
+
+## Level 2: Container Diagram
+This diagram zooms into the SmartBin System to show the high-level technical building blocks.
+
+```mermaid
 C4Container
   title Container diagram for the SmartBin System
 
@@ -47,6 +52,12 @@ C4Container
   Rel(api, id_auth, "Verifies identity (simulated)")
 
   UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")
+```
+
+## Level 3: Component Diagram (Backend API)
+This diagram zooms into the Backend API container to show the major structural building blocks.
+
+```mermaid
 C4Component
   title Component diagram for the Backend API Container
 
@@ -81,3 +92,8 @@ C4Component
   Rel(user_comp, auth_middleware, "Protected by")
   Rel(point_comp, auth_middleware, "Protected by")
   Rel(reward_comp, auth_middleware, "Protected by")
+```
+
+## Level 4: Code Diagram (Optional - For future use)
+
+A Level 4 diagram would zoom into a specific component, like the Points Controller, and show a UML class diagram for its internal structure. This will be detailed during the implementation phase.
