@@ -1,147 +1,97 @@
-classDiagram
-%% Combined SmartBin Architecture (Levels 1-4)
+# C4 Architecture for SmartBin
 
-%% Level 1: System Context
-class Student {
-    <<Person>>
-    "Wants to recycle and earn rewards"
-}
-class FacilitiesAdmin {
-    <<Person>>
-    "Monitors bin status and manages rewards"
-}
-class SmartBinSystem {
-    <<System>>
-    "Earn points for recycling, monitor bins"
-}
-class CampusIDService {
-    <<External System>>
-    "Auth for student IDs"
-}
-class PushNotificationService {
-    <<External System>>
-    "Sends alerts for bin status and rewards"
-}
+This document outlines the architecture of the SmartBin system using the C4 model.
 
-%% Level 2: Containers
-class MobileApp {
-    <<Container>>
-    "Flutter/React Native, scan QR, view points, admin dashboard"
-}
-class WebAdminPanel {
-    <<Container>>
-    "React, monitor bins, manage rewards"
-}
-class BackendAPI {
-    <<Container>>
-    "Node.js/Express, business logic: users, points, rewards, bin data"
-}
-class Database {
-    <<ContainerDB>>
-    "PostgreSQL, stores profiles, points, transactions, bins, rewards"
-}
-class BinSimulator {
-    <<Container>>
-    "Python script, simulates IoT events"
-}
+## Level 1: System Context Diagram
+This diagram shows the big picture: our system and the people/systems it interacts with.
 
-%% Level 3: Components (Backend API)
-class UserController {
-    <<Component>>
-    "User registration, login, profile"
-}
-class PointsController {
-    <<Component>>
-    "Award points, check balance, history"
-}
-class RewardsController {
-    <<Component>>
-    "Manage reward catalog and redemption"
-}
-class BinController {
-    <<Component>>
-    "Receive bin simulator events"
-}
-class AuthMiddleware {
-    <<Component>>
-    "JWT token verification"
-}
-class ServiceLayer {
-    <<Component>>
-    "Business logic orchestrator"
-}
-class RepositoryLayer {
-    <<Component>>
-    "Database access abstraction"
-}
+```mermaid
+C4Context
+  title System Context diagram for SmartBin System
 
-%% Level 4: Classes inside Points Controller
-class PointsService {
-    -pointsRepository: PointsRepository
-    -userRepository: UserRepository
-    -transactionRepository: TransactionRepository
-    +calculatePoints(itemType: String): int
-    +addPoints(userId: String, points: int): Transaction
-}
-class PointsRepository {
-    +findByUserId(userId: String): UserPoints
-}
-class TransactionRepository {
-    +create(transaction: Transaction): Transaction
-}
-class UserRepository {
-    +findById(userId: String): User
-}
-class PointsValidator {
-    +validateItemType(itemType: String): boolean
-}
-class Transaction {
-    +id: String
-    +userId: String
-    +points: int
-    +type: "EARN"|"REDEEM"
-}
-class UserPoints {
-    +userId: String
-    +currentBalance: int
-}
+  Person(student, "Student", "A university student who wants to recycle and earn rewards.")
+  Person(admin, "Facilities Admin", "An employee who monitors bin status and manages rewards.")
 
-%% Relationships Level 1
-Student --> SmartBinSystem : "interacts with"
-FacilitiesAdmin --> SmartBinSystem : "manages"
-SmartBinSystem --> CampusIDService : "verifies identity"
-SmartBinSystem --> PushNotificationService : "sends notifications"
+  System(smartbin, "SmartBin System", "Allows students to earn points for recycling and staff to monitor bin levels.")
 
-%% Relationships Level 2
-Student --> MobileApp : "uses"
-FacilitiesAdmin --> WebAdminPanel : "uses"
-MobileApp --> BackendAPI : "API calls"
-WebAdminPanel --> BackendAPI : "API calls"
-BinSimulator --> BackendAPI : "sends events"
-BackendAPI --> Database : "reads/writes"
+  System_Ext(id_auth, "Campus ID Service", "External authentication for student IDs (to be simulated).")
+  System_Ext(push_notif, "Push Notification Service", "Sends alerts for bin status and new rewards.")
 
-%% Relationships Level 3
-MobileApp --> UserController : "login/register"
-MobileApp --> PointsController : "get balance"
-MobileApp --> RewardsController : "redeem points"
-BinSimulator --> BinController : "deposit events"
-UserController --> ServiceLayer : "uses"
-PointsController --> ServiceLayer : "uses"
-RewardsController --> ServiceLayer : "uses"
-BinController --> ServiceLayer : "uses"
-ServiceLayer --> RepositoryLayer : "uses"
-RepositoryLayer --> Database : "accesses"
-UserController --> AuthMiddleware : "protected by"
-PointsController --> AuthMiddleware : "protected by"
-RewardsController --> AuthMiddleware : "protected by"
+  Rel(student, smartbin, "Scans QR code, views points, redeems rewards")
+  Rel(admin, smartbin, "Monitors bins, manages reward catalog")
+  Rel(smartbin, id_auth, "Verifies student identity")
+  Rel(smartbin, push_notif, "Sends notifications")
+```
 
-%% Relationships Level 4
-PointsController --> PointsService : "uses"
-PointsService --> PointsRepository : "uses"
-PointsService --> TransactionRepository : "uses"
-PointsService --> UserRepository : "uses"
-PointsService --> PointsValidator : "uses"
-PointsService ..> Transaction : "creates"
-PointsRepository ..> UserPoints : "persists"
-TransactionRepository ..> Transaction : "persists"
-UserPoints --> Transaction : "references"
+## Level 2: Container Diagram
+This diagram zooms into the SmartBin System to show the high-level technical building blocks.
+
+```mermaid
+C4Container
+  title Container diagram for the SmartBin System
+
+  Person(student, "Student", "A university student who wants to recycle and earn rewards.")
+  Person(admin, "Facilities Admin", "An employee who monitors bin status and manages rewards.")
+
+  Container_Boundary(c1, "SmartBin System") {
+    Container(mobile_app, "Mobile App", "Flutter / React Native", "Allows students to view points and scan QR codes. Provides admin dashboard.")
+    Container(web_app, "Web Admin Panel", "React", "Allows admins to monitor bins and manage rewards.")
+    Container(api, "Backend API", "Node.js/Express", "Handles business logic: user management, points, rewards, bin data.")
+    ContainerDb(db, "Database", "PostgreSQL", "Stores user profiles, points, transactions, bin status, and reward catalog.")
+    Container(bin_sim, "Bin Simulator", "Python Script", "Simulates IoT device behavior. Sends 'item deposited' events and fill-level updates to the API.")
+  }
+
+  System_Ext(id_auth, "Campus ID Service", "External Auth")
+
+  Rel(student, mobile_app, "Uses")
+  Rel(admin, web_app, "Uses")
+  Rel(mobile_app, api, "Makes API calls to", "JSON/HTTPS")
+  Rel(web_app, api, "Makes API calls to", "JSON/HTTPS")
+  Rel(bin_sim, api, "Sends events to", "JSON/HTTPS")
+  Rel(api, db, "Reads/Writes to", "SQL")
+  Rel(api, id_auth, "Verifies identity (simulated)")
+
+  UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")
+```
+
+## Level 3: Component Diagram (Backend API)
+This diagram zooms into the Backend API container to show the major structural building blocks.
+
+```mermaid
+C4Component
+  title Component diagram for the Backend API Container
+
+  Container_Boundary(api, "Backend API") {
+    Component(user_comp, "User Controller", "Route Handler", "Manages user registration, login, and profile.")
+    Component(point_comp, "Points Controller", "Route Handler", "Handles point awarding, balance checks, and history.")
+    Component(reward_comp, "Rewards Controller", "Route Handler", "Manages reward catalog and redemption logic.")
+    Component(bin_comp, "Bin Controller", "Route Handler", "Receives data from bin simulator (fill level, deposits).")
+    Component(auth_middleware, "Auth Middleware", "Middleware", "Verifies JWT tokens for protected routes.")
+
+    Component(service, "Service Layer", "Business Logic", "Orchestrates operations, contains core business rules.")
+    Component(repo, "Repository Layer", "Data Access", "Abstracts database interactions.")
+  }
+
+  ContainerDb(db, "Database", "PostgreSQL", "Stores all system data.")
+  Container(mobile_app, "Mobile App", "External Container", "Makes API calls.")
+  Container(bin_sim, "Bin Simulator", "External Container", "Sends bin events.")
+
+  Rel(mobile_app, user_comp, "login/register", "JSON/HTTPS")
+  Rel(mobile_app, point_comp, "get balance", "JSON/HTTPS")
+  Rel(mobile_app, reward_comp, "redeem points", "JSON/HTTPS")
+  Rel(bin_sim, bin_comp, "send deposit event", "JSON/HTTPS")
+
+  Rel(user_comp, service, "Uses")
+  Rel(point_comp, service, "Uses")
+  Rel(reward_comp, service, "Uses")
+  Rel(bin_comp, service, "Uses")
+
+  Rel(service, repo, "Uses")
+  Rel(repo, db, "Reads/Writes", "SQL")
+
+  Rel(user_comp, auth_middleware, "Protected by")
+  Rel(point_comp, auth_middleware, "Protected by")
+  Rel(reward_comp, auth_middleware, "Protected by")
+```
+
+
