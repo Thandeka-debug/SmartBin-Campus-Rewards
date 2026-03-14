@@ -1,11 +1,6 @@
-# C4 Architecture for SmartBin
+%% SmartBin C4 Architecture Combined (Levels 1-4)
 
-This document outlines the architecture of the SmartBin system using the C4 model.
-
-## Level 1: System Context Diagram
-This diagram shows the big picture: our system and the people/systems it interacts with.
-
-```mermaid
+%% Level 1: System Context
 C4Context
   title System Context diagram for SmartBin System
 
@@ -21,12 +16,8 @@ C4Context
   Rel(admin, smartbin, "Monitors bins, manages reward catalog")
   Rel(smartbin, id_auth, "Verifies student identity")
   Rel(smartbin, push_notif, "Sends notifications")
-```
 
-## Level 2: Container Diagram
-This diagram zooms into the SmartBin System to show the high-level technical building blocks.
-
-```mermaid
+%% Level 2: Container Diagram
 C4Container
   title Container diagram for the SmartBin System
 
@@ -52,12 +43,8 @@ C4Container
   Rel(api, id_auth, "Verifies identity (simulated)")
 
   UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")
-```
 
-## Level 3: Component Diagram (Backend API)
-This diagram zooms into the Backend API container to show the major structural building blocks.
-
-```mermaid
+%% Level 3: Component Diagram (Backend API)
 C4Component
   title Component diagram for the Backend API Container
 
@@ -92,6 +79,78 @@ C4Component
   Rel(user_comp, auth_middleware, "Protected by")
   Rel(point_comp, auth_middleware, "Protected by")
   Rel(reward_comp, auth_middleware, "Protected by")
-```
 
-
+%% Level 4: Class Diagram (Points Controller)
+classDiagram
+    class PointsController {
+        -pointsService: PointsService
+        +getUserBalance(userId: String): JSON
+        +awardPoints(userId: String, itemType: String): JSON
+        +getTransactionHistory(userId: String): JSON
+        +getLeaderboard(): JSON
+    }
+    
+    class PointsService {
+        -pointsRepository: PointsRepository
+        -userRepository: UserRepository
+        -transactionRepository: TransactionRepository
+        +calculatePoints(itemType: String): int
+        +addPoints(userId: String, points: int): Transaction
+        +deductPoints(userId: String, points: int): Transaction
+        +getUserTotalPoints(userId: String): int
+        +validateSufficientPoints(userId: String, points: int): boolean
+    }
+    
+    class PointsRepository {
+        +findByUserId(userId: String): UserPoints
+        +save(userPoints: UserPoints): UserPoints
+        +updateBalance(userId: String, newBalance: int): void
+    }
+    
+    class TransactionRepository {
+        +create(transaction: Transaction): Transaction
+        +findByUserId(userId: String): List~Transaction~
+        +findByDateRange(startDate: Date, endDate: Date): List~Transaction~
+    }
+    
+    class UserRepository {
+        +findById(userId: String): User
+        +updateRewardPoints(userId: String, points: int): void
+    }
+    
+    class Transaction {
+        +String id
+        +String userId
+        +int points
+        +String type: "EARN" | "REDEEM"
+        +String source: "BOTTLE" | "CAN" | "PAPER"
+        +Date timestamp
+        +String description
+        +toJSON(): Object
+    }
+    
+    class UserPoints {
+        +String userId
+        +int currentBalance
+        +int lifetimePoints
+        +Date lastUpdated
+        +List~String~ transactionIds
+        +calculateLevel(): int
+    }
+    
+    class PointsValidator {
+        +validateItemType(itemType: String): boolean
+        +validatePointsAmount(points: int): boolean
+        +checkDailyLimit(userId: String, points: int): boolean
+    }
+    
+    %% Relationships
+    PointsController --> PointsService : uses
+    PointsService --> PointsRepository : uses
+    PointsService --> TransactionRepository : uses
+    PointsService --> UserRepository : uses
+    PointsService --> PointsValidator : uses
+    PointsService ..> Transaction : creates
+    PointsRepository ..> UserPoints : persists
+    TransactionRepository ..> Transaction : persists
+    UserPoints --> Transaction : references
