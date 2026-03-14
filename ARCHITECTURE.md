@@ -94,4 +94,83 @@ C4Component
   Rel(reward_comp, auth_middleware, "Protected by")
 ```
 
+## Level 4: Code Diagram (Points Controller Component)
+
+This diagram zooms into the **Points Controller** component from Level 3, showing the internal class structure, methods, and relationships.
+
+```mermaid
+classDiagram
+    class PointsController {
+        -pointsService: PointsService
+        +getUserBalance(userId: String): JSON
+        +awardPoints(userId: String, itemType: String): JSON
+        +getTransactionHistory(userId: String): JSON
+        +getLeaderboard(): JSON
+    }
+    
+    class PointsService {
+        -pointsRepository: PointsRepository
+        -userRepository: UserRepository
+        -transactionRepository: TransactionRepository
+        +calculatePoints(itemType: String): int
+        +addPoints(userId: String, points: int): Transaction
+        +deductPoints(userId: String, points: int): Transaction
+        +getUserTotalPoints(userId: String): int
+        +validateSufficientPoints(userId: String, points: int): boolean
+    }
+    
+    class PointsRepository {
+        +findByUserId(userId: String): UserPoints
+        +save(userPoints: UserPoints): UserPoints
+        +updateBalance(userId: String, newBalance: int): void
+    }
+    
+    class TransactionRepository {
+        +create(transaction: Transaction): Transaction
+        +findByUserId(userId: String): List~Transaction~
+        +findByDateRange(startDate: Date, endDate: Date): List~Transaction~
+    }
+    
+    class UserRepository {
+        +findById(userId: String): User
+        +updateRewardPoints(userId: String, points: int): void
+    }
+    
+    class Transaction {
+        +String id
+        +String userId
+        +int points
+        +String type: "EARN" | "REDEEM"
+        +String source: "BOTTLE" | "CAN" | "PAPER"
+        +Date timestamp
+        +String description
+        +toJSON(): Object
+    }
+    
+    class UserPoints {
+        +String userId
+        +int currentBalance
+        +int lifetimePoints
+        +Date lastUpdated
+        +List~String~ transactionIds
+        +calculateLevel(): int
+    }
+    
+    class PointsValidator {
+        +validateItemType(itemType: String): boolean
+        +validatePointsAmount(points: int): boolean
+        +checkDailyLimit(userId: String, points: int): boolean
+    }
+    
+    %% Relationships
+    PointsController --> PointsService : uses
+    PointsService --> PointsRepository : uses
+    PointsService --> TransactionRepository : uses
+    PointsService --> UserRepository : uses
+    PointsService --> PointsValidator : uses
+    PointsService ..> Transaction : creates
+    PointsRepository ..> UserPoints : persists
+    TransactionRepository ..> Transaction : persists
+    UserPoints --> Transaction : references
+```
 
