@@ -14,6 +14,6 @@ SmartBin is a proposed system designed to increase recycling rates on a universi
 ## Documentation
 - [System Specification (SPECIFICATION.md)](SPECIFICATION.md) - Assignment 3: Initial system concept and scope
 - [C4 Architectural Diagrams (ARCHITECTURE.md)](ARCHITECTURE.md) - Assignment 3: System architecture (Levels 1-4)
-- [Stakeholder Analysis (STAKEHOLDER ANALYSIS.md)](STAKEHOLDER ANALYSIS.md) - Assignment 4: Stakeholder identification and concerns
-- [System Requirements (SYSTEM REQUIREMENTS.md)](SYSTEM REQUIREMENTS.md) - Assignment 4: Functional and non-functional requirements
+- [Stakeholder Analysis (STAKEHOLDER-ANALYSIS.md)](STAKEHOLDER-ANALYSIS.md) - Assignment 4: Stakeholder identification and concerns
+- [System Requirements (SYSTEM-REQUIREMENTS.md)](SYSTEM-REQUIREMENTS.md) - Assignment 4: Functional and non-functional requirements
 - [Reflection (REFLECTION.md)](REFLECTION.md) - Assignment 4: Challenges in balancing stakeholder needs
