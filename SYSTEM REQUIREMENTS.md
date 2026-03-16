@@ -110,3 +110,61 @@
 - Anonymous mode option for privacy
 - User sees their own rank even if not in top 20
 - Updates daily (not real-time to prevent gaming)
+
+- ## 2. Non-Functional Requirements
+
+### Usability
+
+| ID | Requirement | Acceptance Criteria |
+|----|-------------|---------------------|
+| NFR-U1 | The mobile app shall be usable by students with no training. | New user can complete registration and first scan in < 3 minutes in usability testing. |
+| NFR-U2 | The interface shall comply with WCAG 2.1 AA accessibility standards. | Pass automated accessibility testing (WAVE, Lighthouse). Screen reader compatible. |
+| NFR-U3 | The system shall support both English and Spanish language interfaces. | Language toggle switches all UI text; 95%+ translation coverage. |
+| NFR-U4 | Error messages shall be user-friendly and suggest solutions. | "Invalid login" becomes "Email or password incorrect. Reset password?" |
+
+### Deployability
+
+| ID | Requirement | Acceptance Criteria |
+|----|-------------|---------------------|
+| NFR-D1 | The system shall be deployable on Linux and Windows servers. | Backend runs on Ubuntu 20.04+ and Windows Server 2019+ without code changes. |
+| NFR-D2 | Deployment shall use containerization (Docker) for consistency. | Dockerfile provided; container starts in < 30 seconds. |
+| NFR-D3 | The system shall support cloud deployment (AWS/Azure/Google Cloud). | Deployment scripts work on EC2, Azure VMs, or Compute Engine. |
+| NFR-D4 | Database migrations shall be automated and reversible. | Migration script runs on deploy; rollback available within 1 command. |
+
+### Maintainability
+
+| ID | Requirement | Acceptance Criteria |
+|----|-------------|---------------------|
+| NFR-M1 | API documentation shall be auto-generated and always up-to-date. | Swagger/OpenAPI spec available at `/api-docs`. All endpoints documented. |
+| NFR-M2 | Source code shall have minimum 70% test coverage. | Coverage report shows >70% for backend; critical paths >90%. |
+| NFR-M3 | Logging shall include appropriate detail levels (debug, info, error). | Logs include timestamp, severity, component, and correlation ID. |
+| NFR-M4 | Code comments shall explain "why" not "what" for complex logic. | Peer review confirms complex sections have explanatory comments. |
+
+### Scalability
+
+| ID | Requirement | Acceptance Criteria |
+|----|-------------|---------------------|
+| NFR-S1 | The system shall support 1,000 concurrent users during peak hours. | Load testing with 1,000 concurrent users shows < 5% error rate. |
+| NFR-S2 | The database shall handle 10,000 transactions per hour. | Stress test maintains response times with 10K transactions/hour. |
+| NFR-S3 | The system shall scale horizontally by adding application server instances. | Adding second server doubles throughput in load tests. |
+| NFR-S4 | Static assets (images, CSS) shall be served via CDN for scalability. | Asset loading time < 500ms from any geographic region. |
+
+### Security
+
+| ID | Requirement | Acceptance Criteria |
+|----|-------------|---------------------|
+| NFR-SEC1 | All user data shall be encrypted at rest using AES-256. | Database encryption verified; backups also encrypted. |
+| NFR-SEC2 | All network traffic shall be encrypted using TLS 1.3. | SSL Labs rating A+; no weak ciphers enabled. |
+| NFR-SEC3 | Passwords shall be hashed using bcrypt with salt. | Password verification uses bcrypt; plaintext never stored. |
+| NFR-SEC4 | The API shall implement rate limiting to prevent abuse. | 100 requests per minute per IP; returns 429 status when exceeded. |
+| NFR-SEC5 | User sessions shall expire after 30 minutes of inactivity. | Session token invalid after 30 mins; user must re-authenticate. |
+
+### Performance
+
+| ID | Requirement | Acceptance Criteria |
+|----|-------------|---------------------|
+| NFR-P1 | API response time shall be < 300ms for 95% of requests. | Monitoring shows 95th percentile response time under 300ms. |
+| NFR-P2 | Point balance lookup shall complete in < 100ms. | Database indexed; query execution time under 50ms. |
+| NFR-P3 | Search results shall load within 2 seconds. | Search across 10K+ rewards returns in < 2 seconds. |
+| NFR-P4 | The system shall handle 100 simultaneous bin sensor reports per second. | Message queue processes 100 msgs/sec without backlog. |
+| NFR-P5 | Mobile app cold start shall be < 3 seconds. | App launches to home screen in under 3 seconds on mid-range device. |
