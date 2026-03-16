@@ -168,3 +168,20 @@
 | NFR-P3 | Search results shall load within 2 seconds. | Search across 10K+ rewards returns in < 2 seconds. |
 | NFR-P4 | The system shall handle 100 simultaneous bin sensor reports per second. | Message queue processes 100 msgs/sec without backlog. |
 | NFR-P5 | Mobile app cold start shall be < 3 seconds. | App launches to home screen in under 3 seconds on mid-range device. |
+
+## Requirements Traceability Matrix
+
+| Requirement ID | Description | Stakeholder(s) Addressed |
+|----------------|-------------|--------------------------|
+| FR1 | User Registration | Student, IT Admin |
+| FR2 | User Authentication | Student, IT Admin |
+| FR3 | Point Awarding | Student, Sustainability Officer |
+| FR4 | Point Balance Viewing | Student |
+| FR5 | Reward Catalog | Student, Dining Services |
+| FR6 | Reward Redemption | Student, Finance Office |
+| FR7 | Bin Fill-Level Monitoring | Facilities Admin |
+| FR8 | Fill-Level Alerts | Facilities Admin |
+| FR9 | Analytics Dashboard | Sustainability Officer, Marketing |
+| FR10 | Admin Reward Management | Dining Services, Finance |
+| FR11 | Bin Simulator Control | Developer |
+| FR12 | Leaderboard | Student, Marketing |
