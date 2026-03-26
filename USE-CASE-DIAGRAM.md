@@ -70,7 +70,7 @@ graph TB
     VerifyVoucher -.-> |<<includes>>| ViewPoints
 ## Actors and Their Roles
 
-```mermaid
+```
 
 | Actor | Role in System |
 |-------|----------------|
