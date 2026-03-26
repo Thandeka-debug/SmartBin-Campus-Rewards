@@ -4,10 +4,10 @@
 
 | Test Case ID | Requirement ID | Description | Steps | Expected Result | Actual Result | Status |
 |--------------|----------------|-------------|-------|-----------------|---------------|--------|
-| TC-FR-001 | FR1 - User Registration | New user registration with valid university email | 1. Open app<br>2. Click Register<br>3. Enter: John Doe, john@university.edu, Pass123!<br>4. Confirm password<br>5. Submit | Account created; verification email sent within 60 seconds | | |
-| TC-FR-002 | FR1 - User Registration | Registration with invalid email domain | 1. Open app<br>2. Click Register<br>3. Enter: John Doe, john@gmail.com, Pass123!<br>4. Submit | Error: "Please use your university email address" | | |
-| TC-FR-003 | FR2 - User Authentication | Login with valid credentials | 1. Open app<br>2. Enter: john@university.edu, Pass123!<br>3. Click Login | Login successful in <3 seconds; user sees home screen | | |
-| TC-FR-004 | FR2 - User Authentication | Login with invalid password | 1. Open app<br>2. Enter: john@university.edu, WrongPass<br>3. Click Login | Error: "Email or password incorrect" | | |
+| TC-FR-001 | FR1 - User Registration | New user registration with valid university email | 1. Open app<br>2. Click Register<br>3. Enter: Thandeka Cacambile, 221350977@mycput.ac.za, Pass123!<br>4. Confirm password<br>5. Submit | Account created; verification email sent within 60 seconds | | |
+| TC-FR-002 | FR1 - User Registration | Registration with invalid email domain | 1. Open app<br>2. Click Register<br>3. Enter: Thandeka Cacambile, thandekacacambile4@gmail.com, Pass123!<br>4. Submit | Error: "Please use your university email address" | | |
+| TC-FR-003 | FR2 - User Authentication | Login with valid credentials | 1. Open app<br>2. Enter: 221350977@mycput.ac.za, Pass123!<br>3. Click Login | Login successful in <3 seconds; user sees home screen | | |
+| TC-FR-004 | FR2 - User Authentication | Login with invalid password | 1. Open app<br>2. Enter: 221350977@mycput.ac.za, WrongPass<br>3. Click Login | Error: "Email or password incorrect" | | |
 | TC-FR-005 | FR2 - User Authentication | 5 failed login attempts | 1. Attempt login with wrong password 5 times | Account locked for 15 minutes; error message displayed | | |
 | TC-FR-006 | FR3 - Point Awarding | Deposit plastic bottle | 1. Scan bin QR<br>2. Select "Plastic Bottle"<br>3. Confirm deposit | 10 points awarded; transaction recorded; notification sent | | |
 | TC-FR-007 | FR3 - Point Awarding | Deposit aluminum can | 1. Scan bin QR<br>2. Select "Aluminum Can"<br>3. Confirm deposit | 8 points awarded; transaction recorded; notification sent | | |
