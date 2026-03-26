@@ -69,7 +69,7 @@ graph TB
     GenerateReports -.-> |<<includes>>| ViewAnalytics
     VerifyVoucher -.-> |<<includes>>| ViewPoints
 ## Actors and Their Roles
-
+```
 | Actor | Role in System |
 |-------|----------------|
 | **System User** | Abstract actor representing any authenticated user. |
