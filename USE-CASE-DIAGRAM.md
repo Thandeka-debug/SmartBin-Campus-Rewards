@@ -68,9 +68,10 @@ graph TB
     ScanBin -.-> |<<includes>>| Login
     GenerateReports -.-> |<<includes>>| ViewAnalytics
     VerifyVoucher -.-> |<<includes>>| ViewPoints
+```
 ## Actors and Their Roles
 
-```
+
 
 | Actor | Role in System |
 |-------|----------------|
