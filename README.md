@@ -12,8 +12,18 @@ SmartBin is a proposed system designed to increase recycling rates on a universi
 - Provide an admin view to monitor bin fill-levels (simulated) and manage the reward catalog.
 
 ## Documentation
-- [System Specification (SPECIFICATION.md)](SPECIFICATION.md) - Assignment 3: Initial system concept and scope
-- [C4 Architectural Diagrams (ARCHITECTURE.md)](ARCHITECTURE.md) - Assignment 3: System architecture (Levels 1-4)
-- [Stakeholder Analysis (STAKEHOLDER-ANALYSIS.md)](STAKEHOLDER-ANALYSIS.md) - Assignment 4: Stakeholder identification and concerns
-- [System Requirements (SYSTEM-REQUIREMENTS.md)](SYSTEM-REQUIREMENTS.md) - Assignment 4: Functional and non-functional requirements
-- [Reflection (REFLECTION.md)](REFLECTION.md) - Assignment 4: Challenges in balancing stakeholder needs
+
+### Assignment 3
+- [System Specification (SPECIFICATION.md)](SPECIFICATION.md)
+- [C4 Architectural Diagrams (ARCHITECTURE.md)](ARCHITECTURE.md)
+
+### Assignment 4
+- [Stakeholder Analysis (STAKEHOLDER-ANALYSIS.md)](STAKEHOLDER-ANALYSIS.md)
+- [System Requirements (SYSTEM-REQUIREMENTS.md)](SYSTEM-REQUIREMENTS.md)
+- [Reflection - Assignment 4 (REFLECTION.md)](REFLECTION.md)
+
+### Assignment 5
+- [Use Case Diagram (USE-CASE-DIAGRAM.md)](USE-CASE-DIAGRAM.md)
+- [Use Case Specifications (USE-CASE-SPECIFICATIONS.md)](USE-CASE-SPECIFICATIONS.md)
+- [Test Cases (TEST-CASES.md)](TEST-CASES.md)
+- [Reflection - Assignment 5 (REFLECTION-ASSIGNMENT5.md)](REFLECTION-ASSIGNMENT5.md)
