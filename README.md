@@ -27,3 +27,12 @@ SmartBin is a proposed system designed to increase recycling rates on a universi
 - [Use Case Specifications (USE-CASE-SPECIFICATIONS.md)](USE-CASE-SPECIFICATIONS.md)
 - [Test Cases (TEST-CASES.md)](TEST-CASES.md)
 - [Reflection - Assignment 5 (REFLECTION-ASSIGNMENT5.md)](REFLECTION-ASSIGNMENT5.md)
+
+### Assignment 6
+- [User Stories (USER-STORIES.md)](USER-STORIES.md)
+- [Product Backlog (PRODUCT-BACKLOG.md)](PRODUCT-BACKLOG.md)
+- [Sprint Plan (SPRINT-PLAN.md)](SPRINT-PLAN.md)
+- [Reflection - Assignment 6 (REFLECTION-ASSIGNMENT6.md)](REFLECTION-ASSIGNMENT6.md)
+- [GitHub Issues](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/issues)
+- [GitHub Project Board](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/projects/1)
+- [GitHub Milestones](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/milestones)
