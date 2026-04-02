@@ -9,7 +9,7 @@ This document compiles all Agile planning artifacts for the SmartBin system, inc
 
 | Story ID | User Story | Acceptance Criteria | Priority | Source |
 |----------|------------|---------------------|----------|--------|
-| US-001 | As a **student**, I want to **register for an account using my university email** so that **I can start earning points for recycling**. | - Registration form accepts @university.edu email<br>- Verification email sent within 60 seconds<br>- Duplicate emails rejected with error message | High | FR1, UC-001 |
+| US-001 | As a **student**, I want to **register for an account using my university email** so that **I can start earning points for recycling**. | - Registration form accepts @cput.ac.za email<br>- Verification email sent within 60 seconds<br>- Duplicate emails rejected with error message | High | FR1, UC-001 |
 | US-002 | As a **student**, I want to **log in to my account** so that **I can access my points and redeem rewards**. | - Login with valid credentials succeeds in <3 seconds<br>- Failed attempts limited to 5 before lockout<br>- Session expires after 30 minutes | High | FR2, UC-002 |
 | US-003 | As a **student**, I want to **scan a bin QR code and deposit an item** so that **I earn points for recycling**. | - QR code scan authenticates user<br>- Points awarded immediately (10/8/12/5 points)<br>- Push notification sent on success | High | FR3, UC-003 |
 | US-004 | As a **student**, I want to **view my current point balance** so that **I know how many points I have**. | - Balance displays on home screen<br>- Updates in real-time<br>- Shows lifetime points earned | High | FR4, UC-004 |
