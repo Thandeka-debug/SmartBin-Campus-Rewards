@@ -36,8 +36,9 @@ This document compiles all Agile planning artifacts for the SmartBin system, inc
 | **Must-have** | Critical for MVP; system cannot function without | Core user journeys |
 | **Should-have** | Important but can be delivered after MVP | Enhances experience |
 | **Could-have** | Nice to have; delivered if time permits | Adds polish |
+| **Won't-have** | Explicitly out of scope for current release | Deferred to future versions |
 
-### Backlog Table
+### Must-have (MVP Critical)
 
 | Story ID | User Story | MoSCoW Priority | Story Points | Dependencies |
 |----------|------------|-----------------|--------------|--------------|
@@ -49,24 +50,46 @@ This document compiles all Agile planning artifacts for the SmartBin system, inc
 | US-007 | Redeem points for rewards | Must-have | 5 | US-004, US-006 |
 | US-009 | Monitor bin fill levels | Must-have | 5 | US-003 |
 | US-015 | User data encryption | Must-have | 2 | None |
+
+### Should-have (Important but not blocking MVP)
+
+| Story ID | User Story | MoSCoW Priority | Story Points | Dependencies |
+|----------|------------|-----------------|--------------|--------------|
 | US-010 | Receive fill-level alerts | Should-have | 3 | US-009 |
 | US-014 | Verify redemption vouchers | Should-have | 3 | US-007 |
 | US-005 | View transaction history | Should-have | 3 | US-004 |
 | US-013 | Manage reward budget | Should-have | 3 | US-007 |
 | US-016 | Handle 1,000 concurrent users | Should-have | 8 | US-002, US-003 |
+
+### Could-have (Nice to have, time permitting)
+
+| Story ID | User Story | MoSCoW Priority | Story Points | Dependencies |
+|----------|------------|-----------------|--------------|--------------|
 | US-008 | View leaderboard | Could-have | 3 | US-004 |
 | US-011 | View recycling analytics | Could-have | 5 | US-003, US-009 |
 | US-012 | Generate sustainability reports | Could-have | 5 | US-011 |
 
+### Won't-have (Explicitly out of scope for current release)
+
+| Story ID | User Story | MoSCoW Priority | Reason for Won't-have |
+|----------|------------|-----------------|----------------------|
+| US-017 | As a student, I want to compete with friends in recycling challenges so that I can have friendly competition. | Won't-have | Requires social features, friend lists, and real-time notifications. Too complex for MVP. |
+| US-018 | As a facilities admin, I want to generate predictive maintenance schedules so that I can fix bins before they break. | Won't-have | Requires machine learning model and historical data analysis. Out of scope for current semester. |
+| US-019 | As a sustainability officer, I want to integrate with external carbon credit systems so that the university can earn carbon credits. | Won't-have | Requires third-party API integration, legal agreements, and carbon credit certification. |
+| US-020 | As a student, I want to receive push notifications for double-points events so that I can earn more during promotions. | Won't-have | Requires event scheduling and promotional campaign management. Not critical for MVP. |
+
 ### MoSCoW Summary
+
 | Category | Count | Percentage |
 |----------|-------|------------|
-| Must-have | 8 | 50% |
-| Should-have | 5 | 31% |
-| Could-have | 3 | 19% |
-| **Total** | **16** | **100%** |
+| Must-have | 8 | 42% |
+| Should-have | 5 | 26% |
+| Could-have | 3 | 16% |
+| Won't-have | 4 | 16% |
+| **Total** | **20** | **100%** |
 
 ### Story Point Guide
+
 | Points | Meaning | Examples |
 |--------|---------|----------|
 | 1 | Simple, few lines of code | US-004 (display balance) |
@@ -74,7 +97,6 @@ This document compiles all Agile planning artifacts for the SmartBin system, inc
 | 3 | Moderate complexity, multiple components | US-001 (registration) |
 | 5 | Complex, multiple integrations | US-003 (deposit + points) |
 | 8 | Highly complex, significant effort | US-016 (scalability) |
-
 ---
 
 ## 4. Sprint Plan (2-Week Sprint)
