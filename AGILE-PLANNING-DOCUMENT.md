@@ -260,7 +260,7 @@ This document compiles all Agile planning artifacts for the SmartBin system, inc
 |-------------|---------|------|
 | **Issues** | Individual user stories with acceptance criteria | [View Issues](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/issues) |
 | **Milestones** | Sprint 1 tracking | [View Milestones](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/milestones) |
-| **Project Board** | Kanban board for sprint progress | [View Project Board](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/projects/1) |
+| **Project Board** | Kanban board for sprint progress | [View Project Board](https://github.com/users/Thandeka-debug/projects/1) |
 | **Labels** | Prioritization (MoSCoW) and story type | priority-high, must-have, user-story, etc. |
 
 ---
