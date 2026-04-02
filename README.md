@@ -29,6 +29,7 @@ SmartBin is a proposed system designed to increase recycling rates on a universi
 - [Reflection - Assignment 5 (REFLECTION-ASSIGNMENT5.md)](REFLECTION-ASSIGNMENT5.md)
 
 ### Assignment 6
+- [Agile Planning Document (AGILE-PLANNING-DOCUMENT.md)](AGILE-PLANNING-DOCUMENT.md)
 - [User Stories (USER-STORIES.md)](USER-STORIES.md)
 - [Product Backlog (PRODUCT-BACKLOG.md)](PRODUCT-BACKLOG.md)
 - [Sprint Plan (SPRINT-PLAN.md)](SPRINT-PLAN.md)
