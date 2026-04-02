@@ -35,5 +35,5 @@ SmartBin is a proposed system designed to increase recycling rates on a universi
 - [Sprint Plan (SPRINT-PLAN.md)](SPRINT-PLAN.md)
 - [Reflection (REFLECTION-ASSIGNMENT6.md)](REFLECTION-ASSIGNMENT6.md)
 - [GitHub Issues](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/issues)
-- [GitHub Project Board](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/projects/1)
+- [GitHub Project Board](https://github.com/users/Thandeka-debug/projects/1)
 - [GitHub Milestones](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/milestones)
