@@ -37,3 +37,7 @@ I added **2 new columns** to this template:
 | In Review | Default |
 | Testing | **NEW (Assignment 7)** |
 | Done | Default |
+
+## Traceability to Assignment 6
+
+The 16 issues from Assignment 6 (US-001 to US-016) will be linked to this board.
