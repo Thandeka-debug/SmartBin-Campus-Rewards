@@ -39,9 +39,16 @@ SmartBin is a proposed system designed to increase recycling rates on a universi
 - [GitHub Milestones](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/milestones)
  
 ### Assignment 7
+
+**Documentation:**
 - [Template Analysis (template_analysis.md)](template_analysis.md)
 - [Kanban Explanation (kanban_explanation.md)](kanban_explanation.md)
 - [Reflection (reflection_assignment7.md)](reflection_assignment7.md)
-- [Template Comparison Screenshot](template-comparison-screenshot.png)
-- [Kanban Board Screenshot](kanban-board-screenshot.png)
+
+**Screenshots:**
+- [Template Comparison Screenshot](template-comparison-screenshot1.png.png)
+- [Kanban Board Screenshot - Custom Columns](Kanban_Board_Custom_Columns.png)
+- [Kanban Board Screenshot - Final Board](Kanban_Board_Final.png)
+
+**GitHub Tools:**
 - [GitHub Project Board](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/projects/1)
