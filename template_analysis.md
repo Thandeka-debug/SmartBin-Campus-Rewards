@@ -1,32 +1,57 @@
 # GitHub Project Templates Analysis
 
-## Selected Template
+## Template Comparison Table
 
-I continued using the project board created in Assignments 5 and 6, which was based on a template suitable for sprint tracking.
+| Template | Columns | Automation Features | Suitability for Agile |
+|----------|---------|---------------------|----------------------|
+| **Basic Kanban** | Todo, In Progress, Done | None - manual movement only | Basic Agile tracking for small teams |
+| **Automated Kanban** | Todo, In Progress, Done | Auto-moves issues to "Done" when PR is merged | Full Agile support with automation |
+| **Bug Triage** | Needs Triage, In Progress, Done | Auto-labels bugs; auto-assigns based on rules | Bug-focused Agile workflow |
+| **Team Planning** | Backlog, Ready, In Progress, In Review, Done | Custom workflows; dependency tracking | Advanced Agile for larger teams |
 
-## Columns in My Board
+## Selected Template: Automated Kanban
 
-| Column | Purpose | Origin |
-|--------|---------|--------|
-| Backlog | Unscheduled tasks | Assignment 6 |
-| Blocked | Tasks with dependencies | Assignment 6 (custom column) |
-| Ready | Tasks ready for sprint | Assignment 6 |
-| In Progress | Active development | Assignment 6 |
-| Testing | Quality assurance | Assignment 6 (custom column) |
-| In Review | Code review stage | Assignment 5 |
-| Done | Completed work | Assignment 6 |
+### Justification
 
-## Custom Columns Added
+I selected the **Automated Kanban** template for the SmartBin system because:
 
-The assignment required adding 2+ custom columns. My board already had:
-- **Blocked** column (from Assignment 6)
-- **Testing** column (from Assignment 6)
+1. **Sprint Tracking Support** - The template includes basic columns (Todo, In Progress, Done) needed for sprint tracking from Assignment 6
 
-These columns were retained and customized for Assignment 7 without deleting any existing work.
+2. **Built-in Automation** - When a pull request is merged, the associated issue automatically moves to "Done". This reduces manual work and keeps the board accurate
 
-## Why This Board Aligns with Project Needs
+3. **Alignment with Agile** - The automated workflow supports continuous delivery principles
 
-1. **Continuity** - Retains all work from Assignments 5 and 6
-2. **Customization** - Includes Blocked and Testing columns as required
-3. **Agile Support** - Columns represent complete workflow from Backlog to Done
-4. **Traceability** - Each column links back to previous assignments
+4. **Customizable** - The template allows adding new columns without breaking existing automation
+
+5. **Traceability** - Linked issues and pull requests maintain traceability from user stories to code changes
+
+### Why Not Other Templates?
+
+| Template | Reason for Rejection |
+|----------|----------------------|
+| Basic Kanban | No automation; requires manual status updates for every task |
+| Bug Triage | Focuses only on bugs; SmartBin has user stories and tasks, not just bugs |
+| Team Planning | Too complex for a single developer; designed for multiple team members with review stages |
+
+### Custom Columns Added in This Assignment (Assignment 7)
+
+For Assignment 7, I customized the Automated Kanban template by adding **2 new columns**:
+
+| New Column | Purpose | Placement |
+|------------|---------|-----------|
+| **Blocked** | Tasks that cannot proceed due to dependencies or external issues | Placed after "In Progress" to visualize bottlenecks |
+| **Testing** | Completed code awaiting quality assurance and verification | Placed between "In Progress" and "Done" to ensure QA before completion |
+
+These custom columns were added to better reflect the SmartBin development workflow, where code needs testing before being marked done, and tasks can become blocked due to dependencies.
+
+### Final Column Structure
+
+After customization, my board has these columns:
+
+| Order | Column Name | Type |
+|-------|-------------|------|
+| 1 | Todo | Default from template |
+| 2 | In Progress | Default from template |
+| 3 | Blocked | **NEW - Added in Assignment 7** |
+| 4 | Testing | **NEW - Added in Assignment 7** |
+| 5 | Done | Default from template |
