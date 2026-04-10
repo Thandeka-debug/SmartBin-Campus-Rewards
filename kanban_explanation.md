@@ -8,13 +8,13 @@ A Kanban board is a visual tool that tracks tasks as they move through workflow 
 
 | Column | Purpose |
 |--------|---------|
-| Backlog | All tasks from Assignment 6 |
-| Ready | Tasks ready for the sprint |
-| In Progress | Tasks being worked on |
-| Blocked | Tasks stuck due to dependencies (added in Assignment 7) |
-| In Review | Tasks awaiting code review |
-| Testing | Tasks awaiting QA (added in Assignment 7) |
-| Done | Completed tasks |
+| Backlog | All 16 issues from Assignment 6 |
+| Ready | Issues ready for the sprint |
+| In Progress | Issues being worked on |
+| Blocked | Issues stuck due to dependencies (added in Assignment 7) |
+| In Review | Issues awaiting code review |
+| Testing | Issues awaiting QA (added in Assignment 7) |
+| Done | Completed issues |
 
 ## Work-in-Progress Limits
 
@@ -28,6 +28,6 @@ A Kanban board is a visual tool that tracks tasks as they move through workflow 
 
 | Principle | How My Board Supports It |
 |-----------|-------------------------|
-| Continuous delivery | Tasks move through columns to Done |
-| Transparency | Everyone sees blocked or in-progress tasks |
-| Adaptability | Easy to reprioritize by moving tasks |
+| Continuous delivery | Issues move through columns to Done |
+| Transparency | Everyone sees blocked or in-progress issues |
+| Adaptability | Easy to reprioritize by moving issues |
