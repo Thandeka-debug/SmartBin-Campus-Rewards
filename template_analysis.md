@@ -1,30 +1,32 @@
 # GitHub Project Templates Analysis
 
-## Template Comparison Table
+## Selected Template
 
-| Template | Columns | Automation Features | Suitability for Agile |
-|----------|---------|---------------------|----------------------|
-| **Basic Kanban** | Todo, In Progress, Done | None - manual movement only | Basic Agile tracking |
-| **Automated Kanban** | Todo, In Progress, Done | Auto-moves issues to "Done" when PR is merged | Full Agile support |
-| **Bug Triage** | Needs Triage, In Progress, Done | Auto-labels bugs; auto-assigns | Bug-focused Agile |
-| **Team Planning** | Backlog, Ready, In Progress, In Review, Done | Custom workflows; dependency tracking | Advanced Agile with reviews |
+I continued using the project board created in Assignments 5 and 6, which was based on a template suitable for sprint tracking.
 
-## Selected Template: Automated Kanban
+## Columns in My Board
 
-### Justification
+| Column | Purpose | Origin |
+|--------|---------|--------|
+| Backlog | Unscheduled tasks | Assignment 6 |
+| Blocked | Tasks with dependencies | Assignment 6 (custom column) |
+| Ready | Tasks ready for sprint | Assignment 6 |
+| In Progress | Active development | Assignment 6 |
+| Testing | Quality assurance | Assignment 6 (custom column) |
+| In Review | Code review stage | Assignment 5 |
+| Done | Completed work | Assignment 6 |
 
-I have selected the **Automated Kanban** template for the SmartBin system because:
+## Custom Columns Added
 
-1. **Sprint Tracking Support** - The template includes columns needed for sprint tracking from Assignment 6
-2. **Built-in Automation** - When a pull request is merged, issues automatically move to "Done"
-3. **Alignment with Agile** - Supports continuous delivery principles
-4. **Scalability** - Can be extended with custom columns without breaking automation
-5. **Traceability** - Linked issues maintain traceability from user stories to code
+The assignment required adding 2+ custom columns. My board already had:
+- **Blocked** column (from Assignment 6)
+- **Testing** column (from Assignment 6)
 
-### Why Not Other Templates?
+These columns were retained and customized for Assignment 7 without deleting any existing work.
 
-| Template | Reason for Rejection |
-|----------|----------------------|
-| Basic Kanban | No automation; requires manual status updates |
-| Bug Triage | Focuses only on bugs; SmartBin has user stories |
-| Team Planning | Too complex for a single developer |
+## Why This Board Aligns with Project Needs
+
+1. **Continuity** - Retains all work from Assignments 5 and 6
+2. **Customization** - Includes Blocked and Testing columns as required
+3. **Agile Support** - Columns represent complete workflow from Backlog to Done
+4. **Traceability** - Each column links back to previous assignments
