@@ -24,14 +24,31 @@ stateDiagram-v2
 
 ### Traceability
 
-**Functional Requirements:**
+**Functional Requirements (Assignment 4):**
 - FR1 (User Registration) → Registered state
 - FR2 (User Authentication) → Active state
 - FR2 (Security) → Suspended state
 
-**User Stories:**
+**Use Cases (Assignment 5):**
+- UC-001 (Register Account) → Registered → Verified
+- UC-002 (Login/Authenticate) → Verified → Active
+
+**User Stories (Assignment 6):**
 - US-001 (Register account) → Registered → Verified
 - US-002 (Login) → Verified → Active
+
+**Sprint Tasks (Assignment 6):**
+- T-001.1: Create database schema for users table
+- T-001.2: Implement registration API endpoint
+- T-001.3: Add email validation for university domain
+- T-001.4: Implement email verification service
+- T-001.5: Create registration UI screen
+- T-001.6: Add form validation and error handling
+- T-002.1: Implement login API endpoint with JWT
+- T-002.2: Add password hashing verification
+- T-002.3: Implement session management
+- T-002.4: Create login UI screen
+- T-002.5: Add rate limiting for failed attempts
 
 ## Object 2: Recycling Transaction
 
@@ -58,12 +75,24 @@ stateDiagram-v2
 
 ### Traceability
 
-**Functional Requirements:**
+**Functional Requirements (Assignment 4):**
 - FR3 (Point Awarding) → Completed state
 - FR7 (Bin Fill-Level Monitoring) → Failed state when bin full
 
-**User Stories:**
+**Use Cases (Assignment 5):**
+- UC-003 (Deposit Recyclable Item) → Pending → Processing → Completed
+
+**User Stories (Assignment 6):**
 - US-003 (Deposit item and earn points) → Pending → Processing → Completed
+
+**Sprint Tasks (Assignment 6):**
+- T-003.1: Create bin simulator script
+- T-003.2: Implement QR code scanning in mobile app
+- T-003.3: Create deposit API endpoint
+- T-003.4: Implement points calculation logic
+- T-003.5: Create transactions table and repository
+- T-003.6: Add push notification service for points
+- T-003.7: Create deposit confirmation UI
 
 ## Object 3: Reward
 
@@ -92,14 +121,24 @@ stateDiagram-v2
 
 ### Traceability
 
-**Functional Requirements:**
+**Functional Requirements (Assignment 4):**
 - FR5 (Reward Catalog) → Available state
 - FR10 (Admin Reward Management) → Draft, Discontinued states
 
-**User Stories:**
+**Use Cases (Assignment 5):**
+- UC-006 (View Reward Catalog) → Available and Limited states visible
+
+**User Stories (Assignment 6):**
 - US-006 (Browse available rewards) → Available, Limited states visible
 - US-014 (Verify redemption vouchers) → Inventory decreases on redemption
 
+**Sprint Tasks (Assignment 6):**
+- T-006.1: Create rewards table and schema
+- T-006.2: Implement rewards catalog API endpoint
+- T-006.3: Create rewards catalog UI screen
+- T-006.4: Add search and filter functionality
+- T-007.5: Add email confirmation service
+- T-007.6: Implement voucher verification endpoint
 ## Object 4: Redemption Voucher
 
 ### Diagram
@@ -129,13 +168,24 @@ stateDiagram-v2
 
 ### Traceability
 
-**Functional Requirements:**
+**Functional Requirements (Assignment 4):**
 - FR6 (Reward Redemption) → Generated, Emailed, Redeemed states
 - FR14 (Verify Voucher) → Verified, Invalid states
 
-**User Stories:**
-- US-007 (Redeem points) → Generated → Emailed
-- US-014 (Verify voucher) → Scanned → Verified/Invalid
+**Use Cases (Assignment 5):**
+- UC-005 (Redeem Reward) → Generated → Emailed → Redeemed
+
+**User Stories (Assignment 6):**
+- US-007 (Redeem points for rewards) → Generated → Emailed
+- US-014 (Verify redemption vouchers) → Scanned → Verified/Invalid
+
+**Sprint Tasks (Assignment 6):**
+- T-007.1: Create redemption API endpoint
+- T-007.2: Implement points deduction logic
+- T-007.3: Generate unique QR code vouchers
+- T-007.4: Create redemption confirmation UI
+- T-007.5: Add email confirmation service
+- T-007.6: Implement voucher verification endpoint
 
 ## Object 5: SmartBin
 
@@ -167,13 +217,25 @@ stateDiagram-v2
 
 ### Traceability
 
-**Functional Requirements:**
+**Functional Requirements (Assignment 4):**
 - FR7 (Bin Fill-Level Monitoring) → Reporting state
 - FR8 (Fill-Level Alerts) → Warning and Critical states
 
-**User Stories:**
+**Use Cases (Assignment 5):**
+- UC-007 (Monitor Bin Fill Levels) → Reporting → Warning → Critical
+- UC-008 (Receive Fill-Level Alerts) → Alerts triggered from Warning/Critical
+
+**User Stories (Assignment 6):**
 - US-009 (Monitor bin fill levels) → Reporting → Warning → Critical
-- US-010 (Receive alerts) → Alerts from Warning/Critical
+- US-010 (Receive fill-level alerts) → Alerts triggered from Warning/Critical
+
+**Sprint Tasks (Assignment 6):**
+- T-003.1: Create bin simulator script
+- T-009.1: Create bins table and schema
+- T-009.2: Implement bin data API endpoint
+- T-009.3: Create bin simulator fill level updates
+- T-009.4: Create admin dashboard map view
+- T-009.5: Add color-coded bin status indicators
 
 ## Object 6: Alert
 
@@ -201,13 +263,21 @@ stateDiagram-v2
 
 ### Traceability
 
-**Functional Requirements:**
+**Functional Requirements (Assignment 4):**
 - FR8 (Fill-Level Alerts) → Created, Sent, Escalated states
 - FR7 (Bin Monitoring) → Resolved state
 
-**User Stories:**
-- US-010 (Receive alerts) → Created → Sent → Acknowledged/Escalated
+**Use Cases (Assignment 5):**
+- UC-008 (Receive Fill-Level Alerts) → Created → Sent → Acknowledged/Escalated
 
+**User Stories (Assignment 6):**
+- US-010 (Receive fill-level alerts) → Created → Sent → Acknowledged/Escalated
+
+**Sprint Tasks (Assignment 6):**
+- T-009.2: Implement bin data API endpoint
+- T-009.3: Create bin simulator fill level updates
+- T-009.4: Create admin dashboard map view
+- T-009.5: Add color-coded bin status indicators
 ## Object 7: Sustainability Report
 
 ### Diagram
@@ -236,13 +306,18 @@ stateDiagram-v2
 
 ### Traceability
 
-**Functional Requirements:**
+**Functional Requirements (Assignment 4):**
 - FR9 (Recycling Analytics Dashboard) → Draft, Generating, Generated states
 - FR9 (Generate Reports) → Downloaded, Emailed states
 
-**User Stories:**
-- US-011 (View analytics) → Data feeds into report
-- US-012 (Generate reports) → Draft → Generating → Generated → Downloaded/Emailed
+**User Stories (Assignment 6):**
+- US-011 (View recycling analytics) → Data feeds into report
+- US-012 (Generate sustainability reports) → Draft → Generating → Generated → Downloaded/Emailed
+
+**Sprint Tasks (Assignment 6):**
+- T-003.5: Create transactions table and repository
+- T-009.1: Create bins table and schema
+- T-009.2: Implement bin data API endpoint
 
 ## Object 8: Reward Budget
 
@@ -271,10 +346,16 @@ stateDiagram-v2
 
 ### Traceability
 
-**Functional Requirements:**
+**Functional Requirements (Assignment 4):**
 - FR13 (Manage reward budget) → Allocated, Spending, Depleted, Frozen states
 - NFR-SEC1 (Security) → Frozen state for fraud detection
 
-**User Stories:**
-- US-013 (Manage budget) → Allocated → Spending → Depleted
+**User Stories (Assignment 6):**
+- US-013 (Manage reward budget) → Allocated → Spending → Depleted
 - US-015 (Data encryption) → Security monitoring triggers Frozen
+
+**Sprint Tasks (Assignment 6):**
+- T-007.2: Implement points deduction logic
+- T-007.6: Implement voucher verification endpoint
+- T-009.2: Implement bin data API endpoint
+
