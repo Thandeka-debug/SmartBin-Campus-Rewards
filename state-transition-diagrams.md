@@ -1,27 +1,34 @@
-# State Transition Diagrams - Assignment 8
-
-## Overview
-
-This document contains state transition diagrams for 8 critical objects in the SmartBin system. Each diagram shows:
-- **States** (circles/rectangles with rounded corners)
-- **Transitions** (arrows between states)
-- **Events** (labels on arrows showing what causes the transition)
-- **Guard conditions** (bracketed conditions that must be true)
-
----
-
 ## Object 1: User Account
 
-### State Transition Diagram
+### Diagram
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Registered : Student submits registration form
-    Registered --> Verified : Student clicks verification email link
-    Registered --> Suspended : Admin marks account as suspicious
-    Verified --> Active : Student logs in successfully
+    [*] --> Registered : Submit registration form
+    Registered --> Verified : Verify email [valid token]
+    Verified --> Active : Login [correct credentials]
+    Active --> Suspended : Failed login attempts [>=5]
     Suspended --> Verified : Admin reinstates account
-    Active --> Suspended : 5 failed login attempts
-    Active --> Deactivated : Student requests account deletion
-    Suspended --> Deactivated : Admin deletes account
+    Active --> Deactivated : User deletes account
     Deactivated --> [*]
+```
+
+### Explanation
+
+| Element | Description |
+|---------|-------------|
+| **States** | Registered, Verified, Active, Suspended, Deactivated |
+| **Transitions** | Registration, email verification, login, suspension, account deletion |
+| **Events** | Submit form, verify email, login attempt, admin action |
+| **Guard Conditions** | Valid token required for verification; login only with correct credentials; suspension after ≥5 failed attempts |
+
+### Traceability
+
+**Functional Requirements:**
+- FR1 (User Registration) → Registered state
+- FR2 (User Authentication) → Active state
+- FR2 (Security) → Suspended state
+
+**User Stories:**
+- US-001 (Register account) → Registered → Verified
+- US-002 (Login) → Verified → Active
