@@ -33,22 +33,23 @@ SmartBin is a proposed system designed to increase recycling rates on a universi
 - [User Stories (USER-STORIES.md)](USER-STORIES.md)
 - [Product Backlog (PRODUCT-BACKLOG.md)](PRODUCT-BACKLOG.md)
 - [Sprint Plan (SPRINT-PLAN.md)](SPRINT-PLAN.md)
-- [Reflection (REFLECTION-ASSIGNMENT6.md)](REFLECTION-ASSIGNMENT6.md)
+- [Reflection - Assignment 6 (REFLECTION-ASSIGNMENT6.md)](REFLECTION-ASSIGNMENT6.md)
 - [GitHub Issues](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/issues)
-- [GitHub Project Board](https://github.com/users/Thandeka-debug/projects/1)
+- [GitHub Project Board](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/projects/1)
 - [GitHub Milestones](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/milestones)
- 
-### Assignment 7
 
-**Documentation:**
+### Assignment 7
 - [Template Analysis (template_analysis.md)](template_analysis.md)
 - [Kanban Explanation (kanban_explanation.md)](kanban_explanation.md)
-- [Reflection (reflection_assignment7.md)](reflection_assignment7.md)
+- [Reflection - Assignment 7 (reflection_assignment7.md)](reflection_assignment7.md)
+- [GitHub Project Board](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/projects/1)
 
 **Screenshots:**
 - [Template Comparison Screenshot](template-comparison-screenshot1.png.png)
 - [Kanban Board Screenshot - Custom Columns](Kanban_Board_Custom_Columns.png)
 - [Kanban Board Screenshot - Final Board](Kanban_Board_Final.png)
 
-**GitHub Tools:**
-- [GitHub Project Board](https://github.com/users/Thandeka-debug/projects/4)
+### Assignment 8
+- [State Transition Diagrams (state-transition-diagrams.md)](state-transition-diagrams.md)
+- [Activity Diagrams (activity-diagrams.md)](activity-diagrams.md)
+- [Reflection - Assignment 8 (reflection-assignment8.md)](reflection-assignment8.md)
