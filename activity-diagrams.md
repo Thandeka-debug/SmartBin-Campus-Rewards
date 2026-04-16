@@ -7,7 +7,7 @@ flowchart TD
     start([Start]) --> A[User opens mobile app]
     A --> B[User clicks Register]
     B --> C[User enters email, name, password]
-    C --> D{Is email from\n@university.edu?}
+    C --> D{Is email from\n@cput.ac.za?}
     D -->|No| E[Display error:\nUse university email]
     E --> B
     D -->|Yes| F[System checks if email exists]
