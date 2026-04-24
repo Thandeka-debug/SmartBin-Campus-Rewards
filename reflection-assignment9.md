@@ -1,5 +1,14 @@
-```markdown
 # Reflection - Assignment 9
+
+## Direct Answers to Assignment Questions
+
+| Question | Answer |
+|----------|--------|
+| Did I struggle with abstraction? | **Yes** - Challenge 1 below explains my difficulty deciding whether `itemType` should be an entity or enum. |
+| Did I struggle with relationships? | **Yes** - Challenge 2 below explains my difficulty determining correct multiplicities (0..* vs 1..*). |
+| Did I struggle with method definitions? | **Yes** - Challenge 4 below explains my difficulty ensuring every method traced back to a use case. |
+
+---
 
 ## Challenges Faced in Designing the Domain Model and Class Diagram
 
@@ -11,6 +20,8 @@
 
 **Lesson Learned:** An entity should have its own identity and lifecycle. If a concept only has data and no behavior, it's better as an attribute or enum.
 
+---
+
 ### Challenge 2: Defining Multiplicity Correctly
 
 **The Issue:** Determining the correct cardinality between entities (e.g., Can a user have zero vouchers? Can a bin have zero alerts?)
@@ -18,6 +29,8 @@
 **How I Addressed It:** I referred back to the domain logic. A new user starts with no vouchers (0..*). A bin may never trigger an alert if it's always emptied on time (0..*). This matches business rules.
 
 **Lesson Learned:** Multiplicity comes from business rules, not from technical convenience. Always ask: "What are the real-world possibilities?"
+
+---
 
 ### Challenge 3: Balancing Inheritance vs. Composition
 
@@ -27,6 +40,8 @@
 
 **Lesson Learned:** Favor composition over inheritance when behaviors differ but data structure is similar. Inheritance adds complexity without enough benefit.
 
+---
+
 ### Challenge 4: Mapping Methods to Use Cases
 
 **The Issue:** Ensuring every method in the class diagram traced back to a use case from Assignment 5.
@@ -34,6 +49,8 @@
 **How I Addressed It:** I created a traceability matrix. For example, `register()` maps to UC-001, `login()` maps to UC-002, `redeemReward()` maps to UC-005, `updateFillLevel()` maps to UC-007.
 
 **Lesson Learned:** The class diagram is the structural implementation of use cases. Each method should fulfill a specific user interaction.
+
+---
 
 ### Challenge 5: Aligning Status Enums with State Diagrams
 
@@ -52,6 +69,8 @@
 
 **Lesson Learned:** Structural diagrams (class diagrams) must align with behavioral diagrams (state diagrams). Inconsistent enums would break the design.
 
+---
+
 ## How the Class Diagram Aligns with Previous Assignments
 
 | Assignment | Alignment |
@@ -60,6 +79,8 @@
 | Assignment 5 (Use Cases) | Each use case (UC-001 to UC-008) maps to one or more class methods |
 | Assignment 6 (User Stories) | Each user story (US-001 to US-015) is supported by class capabilities |
 | Assignment 8 (State Diagrams) | Status enums exactly match state diagrams for each object |
+
+---
 
 ## Trade-offs Made
 
@@ -70,6 +91,8 @@
 | Direct object references vs. ID references | Used ID references (userId, binId) | Avoids circular dependencies in diagram |
 | All methods public vs. private | Showed public methods only | Assignment focuses on system interactions, not internal helpers |
 
+---
+
 ## Lessons Learned About Object-Oriented Design
 
 1. **Entities have identity** - An entity is defined by its unique identifier, not its attributes.
@@ -79,6 +102,8 @@
 5. **Class diagrams are blueprints** - They guide implementation but allow flexibility.
 6. **Traceability is essential** - Every class, attribute, and method should trace to a requirement or use case.
 7. **Simplicity wins** - Composition over inheritance, enums over subclasses, ID references over object references.
+
+---
 
 ## Summary
 
