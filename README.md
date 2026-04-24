@@ -53,3 +53,8 @@ SmartBin is a proposed system designed to increase recycling rates on a universi
 - [State Transition Diagrams (state-transition-diagrams.md)](state-transition-diagrams.md)
 - [Activity Diagrams (activity-diagrams.md)](activity-diagrams.md)
 - [Reflection - Assignment 8 (reflection-assignment8.md)](reflection-assignment8.md)
+
+### Assignment 9
+- [Domain Model (domain-model.md)](domain-model.md)
+- [Class Diagram (class-diagram.md)](class-diagram.md)
+- [Reflection (reflection-assignment9.md)](reflection-assignment9.md)
