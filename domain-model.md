@@ -11,7 +11,7 @@ This document describes the domain model for the SmartBin system. It identifies 
 | Attribute | Type | Description |
 |-----------|------|-------------|
 | userId | String | Unique identifier for the user |
-| email | String | University email address (@university.edu) |
+| email | String | University email address (@mycput.ac.za) |
 | passwordHash | String | Encrypted password (bcrypt) |
 | name | String | Full name of the user |
 | role | Enum | [STUDENT, ADMIN, OFFICER, FINANCE, DINING] |
