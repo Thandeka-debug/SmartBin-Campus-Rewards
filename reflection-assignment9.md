@@ -1,18 +1,3 @@
-
-4. Click **"Commit new file"**
-
----
-
-## Step 4: Create Reflection File
-
-### What to do:
-
-1. Click **"Add file" → "Create new file"**
-
-2. Name the file: `reflection-assignment9.md`
-
-3. Copy and paste the code block below:
-
 ```markdown
 # Reflection - Assignment 9
 
