@@ -1,0 +1,3 @@
+"""
+SmartBin System - Core Classes
+"""
