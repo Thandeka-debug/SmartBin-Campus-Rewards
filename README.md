@@ -57,4 +57,20 @@ SmartBin is a proposed system designed to increase recycling rates on a universi
 ### Assignment 9
 - [Domain Model (domain-model.md)](domain-model.md)
 - [Class Diagram (class-diagram.md)](class-diagram.md)
-- [Reflection (reflection-assignment9.md)](reflection-assignment9.md)
+- [Reflection - Assignment 9 (reflection-assignment9.md)](reflection-assignment9.md)
+
+### Assignment 10
+
+**Language Choice:** Python 3
+
+**Why Python:**
+- Simple syntax, no boilerplate code
+- Built-in support for all creational patterns
+- Easy unit testing with unittest module
+
+**How to Run the Code:**
+
+1. Clone or download the repository:
+   ```bash
+   git clone https://github.com/Thandeka-debug/SmartBin-Campus-Rewards.git
+   cd SmartBin-Campus-Rewards
