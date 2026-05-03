@@ -1,1 +1,0 @@
-# SmartBin System - Main Package
