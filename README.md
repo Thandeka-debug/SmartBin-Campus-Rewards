@@ -3,14 +3,6 @@
 ## Introduction
 SmartBin is a proposed system designed to increase recycling rates on a university campus by gamifying the process. The system simulates a network of "smart" recycling bins that can identify when a user deposits an item, award points to the user's account, and monitor the bin's fill level in real-time. Students can then redeem their accumulated points for small rewards (e.g., coffee vouchers, merchandise) via a mobile application.
 
-## What it will do (once completed)
-- Allow users to register and manage their accounts via a mobile app.
-- Simulate a smart bin identifying a user (via QR code scan) and a deposited item.
-- Award points to the user's account based on the item recycled (e.g., 10 pts for a bottle).
-- Provide a dashboard for users to view their point history and available rewards.
-- Allow users to redeem points for virtual rewards.
-- Provide an admin view to monitor bin fill-levels (simulated) and manage the reward catalog.
-
 ## Documentation
 
 ### Assignment 3
@@ -42,12 +34,10 @@ SmartBin is a proposed system designed to increase recycling rates on a universi
 - [Template Analysis (template_analysis.md)](template_analysis.md)
 - [Kanban Explanation (kanban_explanation.md)](kanban_explanation.md)
 - [Reflection - Assignment 7 (reflection_assignment7.md)](reflection_assignment7.md)
-- [GitHub Project Board](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/projects/1)
-
-**Screenshots:**
 - [Template Comparison Screenshot](template-comparison-screenshot1.png.png)
 - [Kanban Board Screenshot - Custom Columns](Kanban_Board_Custom_Columns.png)
 - [Kanban Board Screenshot - Final Board](Kanban_Board_Final.png)
+- [GitHub Project Board](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/projects/1)
 
 ### Assignment 8
 - [State Transition Diagrams (state-transition-diagrams.md)](state-transition-diagrams.md)
@@ -60,17 +50,8 @@ SmartBin is a proposed system designed to increase recycling rates on a universi
 - [Reflection - Assignment 9 (reflection-assignment9.md)](reflection-assignment9.md)
 
 ### Assignment 10
-
-**Language Choice:** Python 3
-
-**Why Python:**
-- Simple syntax, no boilerplate code
-- Built-in support for all creational patterns
-- Easy unit testing with unittest module
-
-**How to Run the Code:**
-
-1. Clone or download the repository:
-   ```bash
-   git clone https://github.com/Thandeka-debug/SmartBin-Campus-Rewards.git
-   cd SmartBin-Campus-Rewards
+- [Source Code (/src)](src/)
+- [Creational Patterns (/creational_patterns)](creational_patterns/)
+- [Unit Tests (/tests)](tests/)
+- [CHANGELOG.md](CHANGELOG.md)
+- [GitHub Issues](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/issues)
