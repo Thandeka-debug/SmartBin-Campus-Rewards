@@ -1,0 +1,3 @@
+"""
+Factories for SmartBin System
+"""
