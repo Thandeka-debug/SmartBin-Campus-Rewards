@@ -1,8 +1,8 @@
-# Class Diagram - Assignment 9
+# Class Diagram - SmartBin System (Updated with Repository Pattern)
 
 ## Overview
 
-This document contains the UML class diagram for the SmartBin system using Mermaid.js syntax. The diagram includes 7 classes with their attributes, methods, relationships, and multiplicities.
+This document contains the UML class diagram for the SmartBin system including the domain classes (Assignment 9) and the new repository layer (Assignment 11).
 
 ---
 
@@ -10,170 +10,259 @@ This document contains the UML class diagram for the SmartBin system using Merma
 
 ```mermaid
 classDiagram
+    %% ==================== DOMAIN CLASSES (Assignment 9) ====================
+    
     class User {
-        - userId: String
-        - email: String
-        - passwordHash: String
-        - name: String
-        - role: Enum
-        - pointsBalance: Integer
-        - lifetimePoints: Integer
-        - status: Enum
-        - createdAt: Date
-        - lastLoginAt: Date
-        + register(email, name, password): Boolean
-        + verifyEmail(token): Boolean
-        + login(email, password): String
-        + updatePoints(points): Void
-        + suspend(): Void
-        + getTransactionHistory(): List~Transaction~
+        -_user_id: str
+        -_email: str
+        -_name: str
+        -_role: Enum
+        -_points_balance: int
+        -_lifetime_points: int
+        -_status: Enum
+        -_created_at: Date
+        -_last_login_at: Date
+        -_failed_attempts: int
+        +get_user_id(): str
+        +get_email(): str
+        +get_name(): str
+        +get_role(): Enum
+        +get_points_balance(): int
+        +get_lifetime_points(): int
+        +get_status(): Enum
+        +register(email, name, password): bool
+        +verify_email(token): bool
+        +login(email, password): str
+        +update_points(points): void
+        +suspend(): void
     }
 
     class Transaction {
-        - transactionId: String
-        - userId: String
-        - binId: String
-        - itemType: Enum
-        - pointsEarned: Integer
-        - timestamp: Date
-        - status: Enum
-        + createTransaction(userId, binId, itemType): Transaction
-        + calculatePoints(itemType): Integer
-        + awardPoints(): Boolean
-        + failTransaction(reason): Void
+        -_transaction_id: str
+        -_user_id: str
+        -_bin_id: str
+        -_item_type: Enum
+        -_points_earned: int
+        -_timestamp: Date
+        -_status: Enum
+        +get_transaction_id(): str
+        +get_user_id(): str
+        +get_bin_id(): str
+        +get_item_type(): Enum
+        +get_points_earned(): int
+        +get_status(): Enum
+        +create_transaction(user_id, bin_id, item_type): Transaction
+        +calculate_points(item_type): int
+        +award_points(user): bool
+        +fail_transaction(reason): void
     }
 
     class Reward {
-        - rewardId: String
-        - name: String
-        - description: String
-        - pointCost: Integer
-        - imageUrl: String
-        - inventoryCount: Integer
-        - status: Enum
-        - createdAt: Date
-        + createReward(name, cost, inventory): Reward
-        + publishReward(): Void
-        + redeemReward(userId): Voucher
-        + restockInventory(quantity): Void
-        + discontinueReward(): Void
+        -_reward_id: str
+        -_name: str
+        -_description: str
+        -_point_cost: int
+        -_image_url: str
+        -_inventory_count: int
+        -_status: Enum
+        -_created_at: Date
+        +get_reward_id(): str
+        +get_name(): str
+        +get_description(): str
+        +get_point_cost(): int
+        +get_inventory_count(): int
+        +get_status(): Enum
+        +set_description(description): Reward
+        +set_image_url(url): Reward
+        +publish(): void
+        +redeem(user): Voucher
+        +restock(quantity): void
+        +discontinue(): void
     }
 
     class Voucher {
-        - voucherId: String
-        - userId: String
-        - rewardId: String
-        - qrCode: String
-        - status: Enum
-        - generatedAt: Date
-        - expiresAt: Date
-        - redeemedAt: Date
-        + generateVoucher(userId, rewardId): Voucher
-        + sendEmail(): Boolean
-        + scanQRCode(code): Boolean
-        + verifyVoucher(): Boolean
-        + markAsRedeemed(): Void
-        + checkExpiry(): Boolean
+        -_voucher_id: str
+        -_user_id: str
+        -_reward_id: str
+        -_qr_code: str
+        -_status: Enum
+        -_generated_at: Date
+        -_expires_at: Date
+        -_redeemed_at: Date
+        +get_voucher_id(): str
+        +get_user_id(): str
+        +get_reward_id(): str
+        +get_qr_code(): str
+        +get_status(): Enum
+        +get_expires_at(): Date
+        +generate_voucher(user_id, reward_id): Voucher
+        +send_email(): bool
+        +scan_qr_code(code): bool
+        +verify_voucher(): bool
+        +mark_as_redeemed(): void
+        +check_expiry(): bool
     }
 
     class SmartBin {
-        - binId: String
-        - location: String
-        - fillLevel: Integer
-        - status: Enum
-        - lastUpdatedAt: Date
-        - totalDeposits: Integer
-        + updateFillLevel(level): Void
-        + checkCapacity(): Boolean
-        + emptyBin(): Void
-        + getStatusColor(): String
-        + decommissionBin(): Void
+        -_bin_id: str
+        -_location: str
+        -_fill_level: int
+        -_status: Enum
+        -_last_updated_at: Date
+        -_total_deposits: int
+        +get_bin_id(): str
+        +get_location(): str
+        +get_fill_level(): int
+        +get_status(): Enum
+        +get_total_deposits(): int
+        +update_fill_level(level): void
+        +check_capacity(): bool
+        +empty_bin(): void
+        +get_status_color(): str
+        +decommission(): void
+        +add_deposit(): void
     }
 
     class Alert {
-        - alertId: String
-        - binId: String
-        - fillLevel: Integer
-        - severity: Enum
-        - status: Enum
-        - createdAt: Date
-        - acknowledgedAt: Date
-        - acknowledgedBy: String
-        + createAlert(binId, fillLevel): Alert
-        + sendNotification(): Void
-        + acknowledgeAlert(adminId): Void
-        + escalateAlert(): Void
-        + resolveAlert(): Void
+        -_alert_id: str
+        -_bin_id: str
+        -_fill_level: int
+        -_severity: Enum
+        -_status: Enum
+        -_created_at: Date
+        -_acknowledged_at: Date
+        -_acknowledged_by: str
+        +get_alert_id(): str
+        +get_bin_id(): str
+        +get_severity(): Enum
+        +get_status(): Enum
+        +create_alert(bin_id, fill_level): Alert
+        +send_notification(): void
+        +acknowledge(admin_id): void
+        +escalate(): void
+        +resolve(): void
     }
 
     class Report {
-        - reportId: String
-        - reportType: Enum
-        - dateRangeStart: Date
-        - dateRangeEnd: Date
-        - data: JSON
-        - status: Enum
-        - generatedAt: Date
-        - generatedBy: String
-        + selectParameters(type, startDate, endDate): Void
-        + generateReport(): JSON
-        + exportToCSV(): File
-        + exportToPDF(): File
-        + sendEmail(stakeholder): Boolean
+        -_report_id: str
+        -_report_type: Enum
+        -_date_range_start: Date
+        -_date_range_end: Date
+        -_data: JSON
+        -_status: Enum
+        -_generated_at: Date
+        -_generated_by: str
+        +get_report_id(): str
+        +get_status(): Enum
+        +select_parameters(start_date, end_date): void
+        +generate_report(): JSON
+        +export_to_csv(): str
+        +export_to_pdf(): str
+        +send_email(stakeholder_email): bool
     }
 
+    %% ==================== DOMAIN RELATIONSHIPS ====================
+    
     User "1" --> "0..*" Transaction : makes
     User "1" --> "0..*" Voucher : redeems
-    User "1" --> "0..*" Alert : acknowledges
-    User "1" --> "0..*" Report : generates
     Transaction "*" --> "1" SmartBin : occurs at
     Voucher "*" --> "1" Reward : for
     Alert "*" --> "1" SmartBin : monitors
-```
 
-## Key Design Decisions
+    %% ==================== REPOSITORY LAYER (Assignment 11) ====================
+    
+    class Repository {
+        <<interface>>
+        +save(entity: T): void
+        +findById(id: ID): Optional~T~
+        +findAll(): List~T~
+        +delete(id: ID): void
+        +existsById(id: ID): bool
+    }
 
-| Decision | Rationale |
-|----------|-----------|
-| **No inheritance hierarchy** | The 7 entities have distinct behaviors and don't share enough common attributes to justify inheritance. |
-| **User role as Enum** | Fixed set of roles (STUDENT, ADMIN, OFFICER, FINANCE, DINING) with distinct permissions. |
-| **Transaction references userId and binId** | Uses string references instead of direct object references to avoid circular dependencies. |
-| **Voucher has expiry logic** | `checkExpiry()` method encapsulates business rule that vouchers expire after 30 days. |
-| **Alert has escalation logic** | `escalateAlert()` method implements business rule that unacknowledged alerts escalate after 2 hours. |
+    class UserRepository {
+        <<interface>>
+        +findByEmail(email: str): Optional~User~
+        +findByRole(role: str): List~User~
+        +updatePoints(userId: str, points: int): void
+    }
 
-## Relationship Summary
+    class TransactionRepository {
+        <<interface>>
+        +findByUserId(userId: str): List~Transaction~
+        +findByBinId(binId: str): List~Transaction~
+        +findByItemType(itemType: Enum): List~Transaction~
+        +findByDateRange(start, end): List~Transaction~
+        +getTotalPointsByUser(userId: str): int
+    }
 
-| Relationship Type | Between Classes | Multiplicity |
-|------------------|-----------------|--------------|
-| Association | User → Transaction | 1 → 0..* |
-| Association | User → Voucher | 1 → 0..* |
-| Association | User → Alert | 1 → 0..* |
-| Association | User → Report | 1 → 0..* |
-| Association | Transaction → SmartBin | * ← 1 |
-| Association | Voucher → Reward | * ← 1 |
-| Association | Alert → SmartBin | * ← 1 |
+    class RewardRepository {
+        <<interface>>
+        +findByStatus(status: str): List~Reward~
+        +findAvailableRewards(): List~Reward~
+        +updateInventory(rewardId: str, quantity: int): void
+    }
 
-## Multiplicity Key
+    class VoucherRepository {
+        <<interface>>
+        +findByUserId(userId: str): List~Voucher~
+        +findByStatus(status: str): List~Voucher~
+        +findValidVouchers(): List~Voucher~
+    }
 
-| Symbol | Meaning |
-|--------|---------|
-| 1 | Exactly one |
-| 0..1 | Zero or one |
-| 0..* | Zero or more |
-| 1..* | One or more |
-| * | Many (zero or more) |
+    class SmartBinRepository {
+        <<interface>>
+        +findByLocation(location: str): Optional~SmartBin~
+        +findBinsByStatus(status: str): List~SmartBin~
+        +findBinsNeedingEmptying(threshold: int): List~SmartBin~
+        +updateFillLevel(binId: str, fillLevel: int): void
+    }
 
-## Alignment with Previous Assignments
+    class AlertRepository {
+        <<interface>>
+        +findByBinId(binId: str): List~Alert~
+        +findUnacknowledgedAlerts(): List~Alert~
+        +findBySeverity(severity: str): List~Alert~
+    }
 
-| Assignment | Alignment |
-|------------|-----------|
-| Assignment 4 (Functional Requirements) | Business rules map to FR1-FR14 |
-| Assignment 5 (Use Cases) | Methods map to UC-001 through UC-008 |
-| Assignment 6 (User Stories) | Classes support US-001 through US-015 |
-| Assignment 8 (State Diagrams) | Status enums match state diagrams for each object |
+    class ReportRepository {
+        <<interface>>
+        +findByGeneratedBy(userId: str): List~Report~
+        +findByDateRange(start, end): List~Report~
+    }
 
-## Notes
+    class InMemoryUserRepository {
+        -_storage: Dict~str, User~
+        +save(entity: User): void
+        +findById(id: str): Optional~User~
+        +findAll(): List~User~
+        +delete(id: str): void
+        +existsById(id: str): bool
+        +findByEmail(email: str): Optional~User~
+        +findByRole(role: str): List~User~
+        +updatePoints(userId: str, points: int): void
+    }
 
-1. `List~Transaction~` is used instead of `List<Transaction>` because angle brackets cause parsing errors in Mermaid.
-2. Enum types are represented in the diagram as attributes with "Enum" type.
-3. ID references (`userId`, `binId`, `rewardId`) are used instead of object references to avoid circular dependencies.
+    class RepositoryFactory {
+        +getUserRepository(storageType: str): UserRepository
+        +getTransactionRepository(storageType: str): TransactionRepository
+        +getRewardRepository(storageType: str): RewardRepository
+        +getVoucherRepository(storageType: str): VoucherRepository
+        +getSmartBinRepository(storageType: str): SmartBinRepository
+        +getAlertRepository(storageType: str): AlertRepository
+        +getReportRepository(storageType: str): ReportRepository
+    }
+
+    %% ==================== REPOSITORY RELATIONSHIPS ====================
+    
+    UserRepository --|> Repository : extends
+    TransactionRepository --|> Repository : extends
+    RewardRepository --|> Repository : extends
+    VoucherRepository --|> Repository : extends
+    SmartBinRepository --|> Repository : extends
+    AlertRepository --|> Repository : extends
+    ReportRepository --|> Repository : extends
+
+    InMemoryUserRepository ..|> UserRepository : implements
+    RepositoryFactory ..> UserRepository : creates
+    InMemoryUserRepository --> User : stores
