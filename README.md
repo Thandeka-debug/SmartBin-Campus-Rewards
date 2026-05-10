@@ -55,3 +55,32 @@ SmartBin is a proposed system designed to increase recycling rates on a universi
 - [Unit Tests (/tests)](tests/)
 - [CHANGELOG.md](CHANGELOG.md)
 - [GitHub Issues](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/issues)
+
+### Assignment 11
+
+**Repository Pattern Implementation**
+
+This assignment adds a repository layer for data persistence with pluggable storage backends.
+
+**Design Decisions:**
+- Used **Factory Pattern** for storage abstraction (can switch between memory, database, filesystem)
+- Generic `Repository<T, ID>` interface with CRUD operations
+- Entity-specific interfaces with custom query methods (e.g., `find_by_email`, `find_by_role`)
+- In-memory implementation using Python dictionaries (HashMap)
+- Stub implementations provided for future database storage
+
+**Why This Approach:**
+- **Separation of Concerns:** Business logic stays separated from storage details
+- **Testability:** In-memory repositories enable fast unit tests without external dependencies
+- **Scalability:** Switching to a real database later requires only changing the factory parameter
+- **Future-Proofing:** New storage backends can be added without modifying existing code
+
+**Factory Pattern Usage:**
+```python
+from factories.repository_factory import RepositoryFactory
+
+# Create in-memory repository (current)
+user_repo = RepositoryFactory.get_user_repository("memory")
+
+# Future: switch to database (just change the parameter)
+# user_repo = RepositoryFactory.get_user_repository("database")
