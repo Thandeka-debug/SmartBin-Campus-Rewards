@@ -57,24 +57,8 @@ SmartBin is a proposed system designed to increase recycling rates on a universi
 - [GitHub Issues](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/issues)
 
 ### Assignment 11
-
-**Repository Pattern Implementation**
-
-- [Generic Repository Interface](repositories/repository_interface.py)
-- [User Repository Interface](repositories/user_repository.py)
-- [Transaction Repository Interface](repositories/transaction_repository.py)
-- [Reward Repository Interface](repositories/reward_repository.py)
-- [Voucher Repository Interface](repositories/voucher_repository.py)
-- [SmartBin Repository Interface](repositories/smart_bin_repository.py)
-- [Alert Repository Interface](repositories/alert_repository.py)
-- [Report Repository Interface](repositories/report_repository.py)
-- [In-Memory User Repository](repositories/inmemory/inmemory_user_repository.py)
-- [In-Memory Transaction Repository](repositories/inmemory/inmemory_transaction_repository.py)
-- [In-Memory Reward Repository](repositories/inmemory/inmemory_reward_repository.py)
-- [In-Memory Voucher Repository](repositories/inmemory/inmemory_voucher_repository.py)
-- [In-Memory SmartBin Repository](repositories/inmemory/inmemory_smart_bin_repository.py)
-- [In-Memory Alert Repository](repositories/inmemory/inmemory_alert_repository.py)
-- [In-Memory Report Repository](repositories/inmemory/inmemory_report_repository.py)
-- [Repository Factory](factories/repository_factory.py)
-- [Database Storage Stub](future_storage/database_repository_stub.py)
-- [Repository Tests](tests/test_repositories.py)
+- [Repository Interfaces](/repositories)
+- [In-Memory Implementations](/repositories/inmemory)
+- [Factory Pattern](/factories)
+- [Future Storage Stubs](/future_storage)
+- [Repository Tests](/tests/test_repositories.py)
