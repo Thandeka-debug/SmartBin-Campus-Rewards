@@ -1,0 +1,308 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "SmartBin API",
+    "description": "REST API for SmartBin Campus Sustainability Rewards System",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/users": {
+      "post": {
+        "summary": "Create User",
+        "tags": ["Users"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {"type": "string"},
+                  "email": {"type": "string"},
+                  "name": {"type": "string"},
+                  "role": {"type": "string"}
+                },
+                "required": ["user_id", "email", "name"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "User created successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "get": {
+        "summary": "Get All Users",
+        "tags": ["Users"],
+        "responses": {
+          "200": {
+            "description": "List of users"
+          }
+        }
+      }
+    },
+    "/api/users/{user_id}": {
+      "get": {
+        "summary": "Get User by ID",
+        "tags": ["Users"],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "schema": {"type": "string"}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User found"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete User",
+        "tags": ["Users"],
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "schema": {"type": "string"}
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "User deleted"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/api/rewards": {
+      "post": {
+        "summary": "Create Reward",
+        "tags": ["Rewards"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "reward_id": {"type": "string"},
+                  "name": {"type": "string"},
+                  "point_cost": {"type": "integer"},
+                  "inventory": {"type": "integer"}
+                },
+                "required": ["reward_id", "name", "point_cost", "inventory"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Reward created"
+          }
+        }
+      },
+      "get": {
+        "summary": "Get All Rewards",
+        "tags": ["Rewards"],
+        "responses": {
+          "200": {
+            "description": "List of rewards"
+          }
+        }
+      }
+    },
+    "/api/rewards/available": {
+      "get": {
+        "summary": "Get Available Rewards",
+        "tags": ["Rewards"],
+        "responses": {
+          "200": {
+            "description": "List of available rewards"
+          }
+        }
+      }
+    },
+    "/api/rewards/redeem": {
+      "post": {
+        "summary": "Redeem Reward",
+        "tags": ["Rewards"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {"type": "string"},
+                  "reward_id": {"type": "string"}
+                },
+                "required": ["user_id", "reward_id"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Redemption successful"
+          },
+          "400": {
+            "description": "Insufficient points or out of stock"
+          }
+        }
+      }
+    },
+    "/api/bins": {
+      "post": {
+        "summary": "Create Bin",
+        "tags": ["Bins"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "bin_id": {"type": "string"},
+                  "location": {"type": "string"}
+                },
+                "required": ["bin_id", "location"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Bin created"
+          }
+        }
+      },
+      "get": {
+        "summary": "Get All Bins",
+        "tags": ["Bins"],
+        "responses": {
+          "200": {
+            "description": "List of bins"
+          }
+        }
+      }
+    },
+    "/api/bins/{bin_id}": {
+      "get": {
+        "summary": "Get Bin by ID",
+        "tags": ["Bins"],
+        "parameters": [
+          {
+            "name": "bin_id",
+            "in": "path",
+            "required": true,
+            "schema": {"type": "string"}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Bin found"
+          },
+          "404": {
+            "description": "Bin not found"
+          }
+        }
+      }
+    },
+    "/api/bins/deposit": {
+      "post": {
+        "summary": "Deposit Item",
+        "tags": ["Bins"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {"type": "string"},
+                  "bin_id": {"type": "string"},
+                  "item_type": {"type": "string", "enum": ["plastic_bottle", "aluminum_can", "glass_bottle", "paper"]}
+                },
+                "required": ["user_id", "bin_id", "item_type"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Deposit successful"
+          },
+          "400": {
+            "description": "Invalid input or bin full"
+          }
+        }
+      }
+    },
+    "/api/bins/{bin_id}/empty": {
+      "post": {
+        "summary": "Empty Bin",
+        "tags": ["Bins"],
+        "parameters": [
+          {
+            "name": "bin_id",
+            "in": "path",
+            "required": true,
+            "schema": {"type": "string"}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Bin emptied"
+          },
+          "404": {
+            "description": "Bin not found"
+          }
+        }
+      }
+    },
+    "/api/bins/needs-emptying": {
+      "get": {
+        "summary": "Get Bins Needing Emptying",
+        "tags": ["Bins"],
+        "parameters": [
+          {
+            "name": "threshold",
+            "in": "query",
+            "required": false,
+            "schema": {"type": "integer", "default": 80}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of bins needing emptying"
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "summary": "Root",
+        "tags": ["Root"],
+        "responses": {
+          "200": {
+            "description": "API information"
+          }
+        }
+      }
+    }
+  }
+}
