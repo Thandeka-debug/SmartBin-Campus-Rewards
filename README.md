@@ -57,12 +57,19 @@ SmartBin is a proposed system designed to increase recycling rates on a universi
 - [GitHub Issues](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/issues)
 
 ### Assignment 11
-
-**Repository Pattern Implementation**
-
-- [Repository Interfaces](tests/repositories/repositories/)
-- [In-Memory Implementations](tests/repositories/repositories/inmemory/)
-- [Factory Pattern](tests/repositories/repositories/factories/)
-- [Future Storage Stubs](tests/repositories/repositories/factories/future_storage/)
+- [Repository Interfaces](repositories/)
+- [In-Memory Implementations](repositories/inmemory/)
+- [Factory Pattern](factories/)
+- [Future Storage Stubs](future_storage/)
 - [Repository Tests](tests/test_repositories.py)
-- [Repository Tests](tests/test_repositories.py)
+
+### Assignment 12
+
+**Service Layer and REST API Implementation**
+
+- [Service Layer](services/)
+- [API Routes](main.py)
+- [Unit Tests](tests/services/)
+- [Integration Tests](tests/api/)
+- [OpenAPI Documentation](docs/openapi.yaml)
+- [Screenshots](screenshots/)
