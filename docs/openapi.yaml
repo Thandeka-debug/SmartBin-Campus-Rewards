@@ -1,0 +1,39 @@
+openapi: 3.0.0
+info:
+  title: SmartBin API
+  description: REST API for SmartBin Campus Sustainability Rewards System
+  version: 1.0.0
+servers:
+  - url: http://localhost:8000
+
+paths:
+  /api/users:
+    post:
+      summary: Create a new user
+      responses:
+        201:
+          description: User created successfully
+    get:
+      summary: Get all users
+      responses:
+        200:
+          description: List of users
+  
+  /api/rewards:
+    post:
+      summary: Create a new reward
+      responses:
+        201:
+          description: Reward created
+  
+  /api/bins:
+    post:
+      summary: Create a new smart bin
+      responses:
+        201:
+          description: Bin created
+    get:
+      summary: Get all bins
+      responses:
+        200:
+          description: List of bins
