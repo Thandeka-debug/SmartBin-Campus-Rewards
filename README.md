@@ -60,14 +60,9 @@ SmartBin is a proposed system designed to increase recycling rates on a universi
 
 **Repository Pattern Implementation**
 
-- Used **Factory Pattern** for storage abstraction (memory, database, filesystem)
-- Generic `Repository<T, ID>` interface with CRUD operations
-- Entity-specific interfaces with custom query methods
-- In-memory implementation using Python dictionaries (HashMap)
-- Stub implementations for future database storage
-
-- [Repository Interfaces](repositories/)
-- [In-Memory Implementations](repositories/inmemory/)
-- [Factory Pattern](factories/)
-- [Future Storage Stubs](future_storage/)
+- [Repository Interfaces](tests/repositories/repositories/)
+- [In-Memory Implementations](tests/repositories/repositories/inmemory/)
+- [Factory Pattern](tests/repositories/repositories/factories/)
+- [Future Storage Stubs](tests/repositories/repositories/factories/future_storage/)
+- [Repository Tests](tests/test_repositories.py)
 - [Repository Tests](tests/test_repositories.py)
