@@ -23,8 +23,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pytest pytest-cov httpx
-          pip install fastapi uvicorn
+          pip install pytest httpx fastapi uvicorn
 
       - name: Run tests
         run: |
@@ -35,7 +34,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-results
-          path: pytest.xml
+          path: tests/
 
   build:
     name: Build Package
@@ -52,11 +51,13 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Build package
+      - name: Install build tools
         run: |
           python -m pip install --upgrade pip
           pip install build wheel
-          python -m build
+
+      - name: Build package
+        run: python -m build
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
