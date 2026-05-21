@@ -74,3 +74,13 @@ SmartBin is a proposed system designed to increase recycling rates on a universi
 - [OpenAPI Documentation](docs/openapi.yaml)
 - [Screenshots](screenshots/)
 - [OpenAPI Documentation](docs/openapi.json)
+
+### Assignment 13
+
+**CI/CD Pipeline with GitHub Actions**
+
+**How to Run Tests Locally:**
+
+```bash
+pip install pytest pytest-cov httpx fastapi uvicorn
+python -m pytest tests/ -v
