@@ -68,3 +68,46 @@ SmartBin is a proposed system designed to increase recycling rates on a universi
 - [Branch Protection Screenshot](screenshots-assignment13/branch-protection.png)
 - [CI Tests Passing](screenshots-assignment13/ci-passed.png)
 - [Release Artifact](screenshots-assignment13/artifact-created.png)
+
+### Assignment 14
+
+## Getting Started
+
+### Prerequisites
+- Python 3.11+
+- Git
+
+### Installation
+- [Clone Repository](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards.git)
+- [Install Dependencies](requirements.txt)
+
+### Running the API
+- [Run FastAPI Server](main.py)
+
+### Running Tests
+- [Run Pytest](tests/)
+
+## Features for Contribution
+
+| Feature | Difficulty | Labels |
+|---------|------------|--------|
+| [Input Validation](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/labels/good-first-issue) | Easy | good-first-issue |
+| [API Error Messages](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/labels/good-first-issue) | Easy | good-first-issue |
+| [Docstrings](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/labels/good-first-issue) | Easy | good-first-issue |
+| [Health Check](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/labels/good-first-issue) | Easy | good-first-issue |
+| [Edge Case Tests](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/labels/good-first-issue) | Easy | good-first-issue |
+| [Database Storage](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/labels/feature-request) | Medium | feature-request |
+| [Authentication](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/labels/feature-request) | Medium | feature-request |
+| [Real-time Dashboard](https://github.com/Thandeka-debug/SmartBin-Campus-Rewards/labels/feature-request) | Hard | feature-request |
+
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md)
+
+## Roadmap
+
+See [ROADMAP.md](ROADMAP.md)
+
+## License
+
+MIT - see [LICENSE](LICENSE)
