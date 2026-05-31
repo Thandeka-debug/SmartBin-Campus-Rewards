@@ -111,3 +111,11 @@ See [ROADMAP.md](ROADMAP.md)
 ## License
 
 MIT - see [LICENSE](LICENSE)
+
+## VotingResults
+
+See  [Voting Results](VOTING_RESULTS.md)
+
+## Reflection14
+
+See [Reflection - Assignment 14](REFLECTION.md)
