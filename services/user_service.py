@@ -14,7 +14,20 @@ class UserService:
         self._repository = repository or InMemoryUserRepository()
     
     def create_user(self, user_id: str, email: str, name: str, role: str = "student") -> User:
-        """Create a new user"""
+        """Create a new user.
+
+        Args:
+            user_id (str): Unique identifier for the user.
+            email (str): Email address of the user (must end with "@university.edu").
+            name (str): Full name of the user.
+            role (str, optional): Role of the user (student, admin, officer, finance, dining). Defaults to "student".
+
+        Returns:
+            User: The newly created User object.
+
+        Raises:
+            ValueError: If user_id already exists or email is invalid.
+        """
         if self._repository.exists_by_id(user_id):
             raise ValueError(f"User with ID {user_id} already exists")
         if not email.endswith("@university.edu"):
@@ -33,36 +46,85 @@ class UserService:
         return user
     
     def get_user_by_id(self, user_id: str) -> Optional[User]:
-        """Get user by ID"""
+        """Get user by ID.
+
+        Args:
+            user_id (str): Unique identifier of the user.
+
+        Returns:
+            User: The User object if found.
+
+        Raises:
+            ValueError: If the user is not found.
+        """
         user = self._repository.find_by_id(user_id)
         if not user:
             raise ValueError(f"User with ID {user_id} not found")
         return user
     
     def get_all_users(self) -> List[User]:
-        """Get all users"""
+        """Get all users.
+
+        Returns:
+            List[User]: A list of all User objects.
+        """
         return self._repository.find_all()
     
     def get_user_by_email(self, email: str) -> Optional[User]:
-        """Get user by email"""
+        """Get user by email.
+
+        Args:
+            email (str): Email address of the user.
+
+        Returns:
+            User: The User object if found.
+
+        Raises:
+            ValueError: If no user with the given email is found.
+        """
         user = self._repository.find_by_email(email)
         if not user:
             raise ValueError(f"User with email {email} not found")
         return user
     
     def update_user_points(self, user_id: str, points: int) -> User:
-        """Update user's points balance"""
+        """Update user's points balance.
+
+        Args:
+            user_id (str): Unique identifier of the user.
+            points (int): New points value to set.
+
+        Returns:
+            User: The updated User object.
+
+        Raises:
+            ValueError: If the user is not found.
+        """
         user = self.get_user_by_id(user_id)
         user.update_points(points)
         self._repository.save(user)
         return user
     
     def delete_user(self, user_id: str) -> None:
-        """Delete a user"""
+        """Delete a user.
+
+        Args:
+            user_id (str): Unique identifier of the user to delete.
+
+        Raises:
+            ValueError: If the user is not found.
+        """
         if not self._repository.exists_by_id(user_id):
             raise ValueError(f"User with ID {user_id} not found")
         self._repository.delete(user_id)
     
     def get_users_by_role(self, role: str) -> List[User]:
-        """Get users by role"""
+        """Get users by role.
+
+        Args:
+            role (str): Role to filter by (e.g., "student", "admin").
+
+        Returns:
+            List[User]: A list of User objects with the specified role.
+        """
         return self._repository.find_by_role(role)
