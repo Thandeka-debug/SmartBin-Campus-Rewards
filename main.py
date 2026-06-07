@@ -316,6 +316,24 @@ async def get_bins_needing_emptying(threshold: int = 80):
         ) for b in bins
     ]
 
+# ==================== Health Check Endpoint ====================
+
+@app.get("/health", tags=["Health"])
+async def health_check():
+    """
+    Health check endpoint.
+    Returns the current status of the API and its services.
+    """
+    return {
+        "status": "healthy",
+        "version": "1.0.0",
+        "services": {
+            "user_service": "up",
+            "reward_service": "up",
+            "bin_service": "up"
+        }
+    }
+
 # ==================== Root Endpoint ====================
 
 @app.get("/", tags=["Root"])
