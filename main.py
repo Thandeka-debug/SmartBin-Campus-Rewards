@@ -101,6 +101,7 @@ class UpdateFillLevelRequest(BaseModel):
 
 @app.post("/api/users", response_model=UserResponse, status_code=status.HTTP_201_CREATED, tags=["Users"])
 async def create_user(request: CreateUserRequest):
+    """Create a new user account with university email validation."""
     try:
         user = user_service.create_user(request.user_id, request.email, request.name, request.role)
         return UserResponse(
@@ -116,6 +117,7 @@ async def create_user(request: CreateUserRequest):
 
 @app.get("/api/users", response_model=List[UserResponse], tags=["Users"])
 async def get_all_users():
+    """Retrieve all registered users."""
     users = user_service.get_all_users()
     return [
         UserResponse(
@@ -130,6 +132,7 @@ async def get_all_users():
 
 @app.get("/api/users/{user_id}", response_model=UserResponse, tags=["Users"])
 async def get_user_by_id(user_id: str):
+    """Retrieve a specific user by their ID."""
     try:
         user = user_service.get_user_by_id(user_id)
         return UserResponse(
@@ -145,6 +148,7 @@ async def get_user_by_id(user_id: str):
 
 @app.delete("/api/users/{user_id}", status_code=status.HTTP_204_NO_CONTENT, tags=["Users"])
 async def delete_user(user_id: str):
+    """Delete a user account by ID."""
     try:
         user_service.delete_user(user_id)
     except ValueError as e:
@@ -154,6 +158,7 @@ async def delete_user(user_id: str):
 
 @app.post("/api/rewards", response_model=RewardResponse, status_code=status.HTTP_201_CREATED, tags=["Rewards"])
 async def create_reward(request: CreateRewardRequest):
+    """Create a new redeemable reward."""
     try:
         reward = reward_service.create_reward(request.reward_id, request.name, request.point_cost, request.inventory)
         return RewardResponse(
@@ -168,6 +173,7 @@ async def create_reward(request: CreateRewardRequest):
 
 @app.get("/api/rewards", response_model=List[RewardResponse], tags=["Rewards"])
 async def get_all_rewards():
+    """Retrieve all rewards."""
     rewards = reward_service.get_all_rewards()
     return [
         RewardResponse(
@@ -181,6 +187,7 @@ async def get_all_rewards():
 
 @app.get("/api/rewards/available", response_model=List[RewardResponse], tags=["Rewards"])
 async def get_available_rewards():
+    """Retrieve only available rewards with stock."""
     rewards = reward_service.get_available_rewards()
     return [
         RewardResponse(
@@ -194,6 +201,7 @@ async def get_available_rewards():
 
 @app.post("/api/rewards/redeem", response_model=RedeemResponse, tags=["Rewards"])
 async def redeem_reward(request: RedeemRequest):
+    """Redeem a reward using user points."""
     try:
         result = reward_service.redeem_reward(request.user_id, request.reward_id)
         return RedeemResponse(
@@ -207,6 +215,7 @@ async def redeem_reward(request: RedeemRequest):
 
 @app.put("/api/rewards/{reward_id}/publish", response_model=RewardResponse, tags=["Rewards"])
 async def publish_reward(reward_id: str):
+    """Publish a reward to make it available to users."""
     try:
         reward = reward_service.publish_reward(reward_id)
         return RewardResponse(
@@ -223,6 +232,7 @@ async def publish_reward(reward_id: str):
 
 @app.post("/api/bins", response_model=BinResponse, status_code=status.HTTP_201_CREATED, tags=["Bins"])
 async def create_bin(request: CreateBinRequest):
+    """Register a new smart bin at a location."""
     try:
         bin = bin_service.create_bin(request.bin_id, request.location)
         return BinResponse(
@@ -237,6 +247,7 @@ async def create_bin(request: CreateBinRequest):
 
 @app.get("/api/bins", response_model=List[BinResponse], tags=["Bins"])
 async def get_all_bins():
+    """Retrieve all registered smart bins."""
     bins = bin_service.get_all_bins()
     return [
         BinResponse(
@@ -250,6 +261,7 @@ async def get_all_bins():
 
 @app.get("/api/bins/{bin_id}", response_model=BinResponse, tags=["Bins"])
 async def get_bin_by_id(bin_id: str):
+    """Retrieve a specific smart bin by ID."""
     try:
         bin = bin_service.get_bin_by_id(bin_id)
         return BinResponse(
@@ -264,6 +276,7 @@ async def get_bin_by_id(bin_id: str):
 
 @app.put("/api/bins/{bin_id}/fill-level", response_model=BinResponse, tags=["Bins"])
 async def update_fill_level(bin_id: str, request: UpdateFillLevelRequest):
+    """Update the fill level of a smart bin."""
     try:
         bin = bin_service.update_bin_fill_level(bin_id, request.fill_level)
         return BinResponse(
@@ -278,6 +291,7 @@ async def update_fill_level(bin_id: str, request: UpdateFillLevelRequest):
 
 @app.post("/api/bins/deposit", response_model=DepositResponse, tags=["Bins"])
 async def deposit_item(request: DepositRequest):
+    """Deposit a recyclable item into a bin and earn points."""
     try:
         result = bin_service.deposit_item(request.user_id, request.bin_id, request.item_type)
         return DepositResponse(
@@ -291,6 +305,7 @@ async def deposit_item(request: DepositRequest):
 
 @app.post("/api/bins/{bin_id}/empty", response_model=BinResponse, tags=["Bins"])
 async def empty_bin(bin_id: str):
+    """Empty a smart bin and reset its fill level."""
     try:
         bin = bin_service.empty_bin(bin_id)
         return BinResponse(
@@ -305,6 +320,7 @@ async def empty_bin(bin_id: str):
 
 @app.get("/api/bins/needs-emptying", response_model=List[BinResponse], tags=["Bins"])
 async def get_bins_needing_emptying(threshold: int = 80):
+    """Retrieve bins that have exceeded the fill threshold."""
     bins = bin_service.get_bins_needing_emptying(threshold)
     return [
         BinResponse(
@@ -338,6 +354,7 @@ async def health_check():
 
 @app.get("/", tags=["Root"])
 async def root():
+    """Root endpoint returning API information."""
     return {
         "message": "Welcome to SmartBin API",
         "docs": "/docs",
