@@ -14,7 +14,7 @@ from src.transaction import Transaction, ItemType
 from src.reward import Reward
 from src.voucher import Voucher
 from src.smart_bin import SmartBin
-from src.alert import Alert, AlertSeverity
+from src.alert import Alert
 from src.report import Report, ReportType
 
 from repositories.inmemory.inmemory_user_repository import InMemoryUserRepository
